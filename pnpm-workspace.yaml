@@ -1,0 +1,3 @@
+name: quicapp-ecology
+packages:
+  - 'packages/*'
