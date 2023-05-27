@@ -1,8 +1,9 @@
 {
-  "name": "async",
-  "version": "1.0.0",
+  "name": "quickapp-async",
+  "version": "0.0.1-alpha.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup"
