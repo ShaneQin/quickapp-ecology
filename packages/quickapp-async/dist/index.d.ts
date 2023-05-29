@@ -168,6 +168,20 @@ type AsyncDeviceGetCpuInfo = () => Promise<{
 type AsyncDeviceGetOAID = () => Promise<{
     oaid: string | undefined;
 }>;
+interface AsyncFetchFetchArgs {
+    url: string;
+    data?: string | object | ArrayBuffer;
+    header?: object;
+    method?: string;
+    responseType?: string;
+}
+interface AsyncFetchFetchRes {
+    data: {
+        code: number;
+        data: string | object | ArrayBuffer;
+        headers: object;
+    };
+}
 
 declare const asyncDeviceGetInfo: AsyncDeviceGetInfo;
 declare const asyncDeviceGetId: AsyncDeviceGetId;
@@ -203,4 +217,4 @@ declare const asyncStorageKey: AsyncStorageKey;
 
 declare const asyncWebviewSetCookie: AsyncWebviewSetCookie;
 
-export { AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncShowContextMenu, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncWebviewSetCookie, AsyncshowDialog, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncShowContextMenu, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncWebviewSetCookie, asyncshowDialog };
+export { AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetInfoRes, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncFetchFetchArgs, AsyncFetchFetchRes, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncNetworkGetTypeRes, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncShowContextMenu, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncWebviewSetCookie, AsyncshowDialog, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncShowContextMenu, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncWebviewSetCookie, asyncshowDialog };

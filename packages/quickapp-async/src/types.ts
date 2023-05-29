@@ -101,7 +101,7 @@ export type AsyncShortcutHasInstalled = () => Promise<boolean>;
 
 export type AsyncShortcuInstall = (args: { message?: string }) => Promise<void>;
 
-interface AsyncNetworkGetTypeRes {
+export interface AsyncNetworkGetTypeRes {
   metered: boolean;
   type: string;
 }
@@ -121,7 +121,7 @@ interface AsyncNetworkGetSimOperatorsRes {
 
 export type AsyncNetworkGetSimOperators = () => Promise<AsyncNetworkGetSimOperatorsRes>;
 
-interface AsyncDeviceGetInfoRes {
+export interface AsyncDeviceGetInfoRes {
   brand: string;
   manufacturer: string;
   model: string;
@@ -173,6 +173,23 @@ export type AsyncDeviceGetAvailableStorage = () => Promise<{ availableStorage: n
 
 export type AsyncDeviceGetCpuInfo = () => Promise<{ cpuInfo: string }>;
 
-export type AsyncDeviceGetOAID = () => Promise<{ oaid: string | undefined}>;
+export type AsyncDeviceGetOAID = () => Promise<{ oaid: string | undefined }>;
+
+export interface AsyncFetchFetchArgs {
+  url: string;
+  data?: string | object | ArrayBuffer;
+  header?: object;
+  method?: string;
+  responseType?: string;
+}
+
+export interface AsyncFetchFetchRes {
+  data: {
+    code: number;
+    data: string | object | ArrayBuffer;
+    headers: object;
+  }
+}
+
 
 
