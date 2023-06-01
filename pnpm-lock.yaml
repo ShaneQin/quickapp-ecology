@@ -10,6 +10,9 @@ importers:
       '@types/quickapp':
         specifier: npm:quickapp-interface@^1.0.0
         version: /quickapp-interface@1.0.0
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
       tsup:
         specifier: ^6.7.0
         version: 6.7.0(typescript@5.0.4)
@@ -17,7 +20,15 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4
 
-  packages/async: {}
+  packages/quickapp-async: {}
+
+  packages/quickapp-plugins: {}
+
+  packages/quickapp-wrapper:
+    dependencies:
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
 
 packages:
 
@@ -1535,6 +1546,10 @@ packages:
   /lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
     dev: true
+
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /lru-cache@4.1.5:
     resolution: {integrity: sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==}

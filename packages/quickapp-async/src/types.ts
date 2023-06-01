@@ -13,18 +13,22 @@ interface AsyncshowDialogArgs {
     {
       text: string;
       color?: string;
-    },
+    }
   ];
   autocancel?: boolean;
 }
-export type AsyncshowDialog = (args: AsyncshowDialogArgs) => Promise<{ index: number } | undefined>;
+export type AsyncshowDialog = (
+  args: AsyncshowDialogArgs
+) => Promise<{ index: number } | undefined>;
 
 interface AsyncshowDialogArgs {
   itemList: string[];
   itemColor?: string;
 }
 
-export type AsyncShowContextMenu = (args: AsyncshowDialogArgs) => Promise<{ index: number } | undefined>;
+export type AsyncShowContextMenu = (
+  args: AsyncshowDialogArgs
+) => Promise<{ index: number } | undefined>;
 
 interface AsyncWebviewSetCookieArgs {
   domain: string;
@@ -36,7 +40,9 @@ interface AsyncWebviewSetCookieArgs {
   extra?: string;
 }
 
-export type AsyncWebviewSetCookie = (args: AsyncWebviewSetCookieArgs) => Promise<void>
+export type AsyncWebviewSetCookie = (
+  args: AsyncWebviewSetCookieArgs
+) => Promise<void>;
 
 interface AsyncRequestUploadArgs {
   url: string;
@@ -48,13 +54,13 @@ interface AsyncRequestUploadArgs {
       name?: string;
       uri: string;
       type?: string;
-    },
+    }
   ];
   data?: [
     {
       name: string;
       value: string;
-    },
+    }
   ];
 }
 
@@ -64,7 +70,9 @@ interface AsyncRequestUploadRes {
   headers: object;
 }
 
-export type AsyncRequestUpload = (args: AsyncRequestUploadArgs) => Promise<AsyncRequestUploadRes>
+export type AsyncRequestUpload = (
+  args: AsyncRequestUploadArgs
+) => Promise<AsyncRequestUploadRes>;
 
 interface AsyncRequestDownloadArgs {
   url: string;
@@ -73,16 +81,20 @@ interface AsyncRequestDownloadArgs {
   filename?: string;
 }
 
-export type AsyncRequestDownload = (args: AsyncRequestDownloadArgs) => Promise<{ token: string }>
+export type AsyncRequestDownload = (
+  args: AsyncRequestDownloadArgs
+) => Promise<{ token: string }>;
 
-export type AsyncRequestOnDownloadComplete = (args: { token: string }) => Promise<{ uri: string }>
+export type AsyncRequestOnDownloadComplete = (args: {
+  token: string;
+}) => Promise<{ uri: string }>;
 
 interface AsyncStorageGetArgs {
   key: string;
   default?: string;
 }
 
-export type AsyncStorageGet = (args: AsyncStorageGetArgs) => Promise<any>
+export type AsyncStorageGet = (args: AsyncStorageGetArgs) => Promise<any>;
 
 interface AsyncStorageSetArgs {
   key: string;
@@ -119,7 +131,8 @@ interface AsyncNetworkGetSimOperatorsRes {
   size: string;
 }
 
-export type AsyncNetworkGetSimOperators = () => Promise<AsyncNetworkGetSimOperatorsRes>;
+export type AsyncNetworkGetSimOperators =
+  () => Promise<AsyncNetworkGetSimOperatorsRes>;
 
 export interface AsyncDeviceGetInfoRes {
   brand: string;
@@ -157,19 +170,27 @@ interface AsyncDeviceGetIdRes {
   advertising?: string;
 }
 
-export type AsyncDeviceGetId = (args: { type: GetIdType[] }) => Promise<AsyncDeviceGetIdRes>;
+export type AsyncDeviceGetId = (args: {
+  type: GetIdType[];
+}) => Promise<AsyncDeviceGetIdRes>;
 
 export type AsyncDeviceGetDeviceId = () => Promise<{ deviceId: string }>;
 
 export type AsyncDeviceGetUserId = () => Promise<{ userId: string }>;
 
-export type AsyncDeviceGetAdvertisingId = () => Promise<{ advertisingId: string }>;
+export type AsyncDeviceGetAdvertisingId = () => Promise<{
+  advertisingId: string;
+}>;
 
 export type AsyncDeviceGetSerial = () => Promise<{ serial: string }>;
 
-export type AsyncDeviceGetTotalStorage = () => Promise<{ totalStorage: number }>;
+export type AsyncDeviceGetTotalStorage = () => Promise<{
+  totalStorage: number;
+}>;
 
-export type AsyncDeviceGetAvailableStorage = () => Promise<{ availableStorage: number }>;
+export type AsyncDeviceGetAvailableStorage = () => Promise<{
+  availableStorage: number;
+}>;
 
 export type AsyncDeviceGetCpuInfo = () => Promise<{ cpuInfo: string }>;
 
@@ -188,8 +209,19 @@ export interface AsyncFetchFetchRes {
     code: number;
     data: string | object | ArrayBuffer;
     headers: object;
-  }
+  };
 }
 
-
-
+export interface AppGetInfoRes {
+  packageName: string;
+  icon: string;
+  name: string;
+  versionName: string;
+  versionCode: number;
+  logLevel: string;
+  source: {
+    packageName: string;
+    type: string;
+    extra: object;
+  };
+}

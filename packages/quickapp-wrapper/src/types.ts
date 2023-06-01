@@ -1,0 +1,3 @@
+export type AppLifeCycle = 'onCreate' | 'onRequest' | 'onShow' | 'onHide' | 'onDestroy' | 'onError' | 'onPageNotFound';
+export type PageLifeCycle = 'onInit' | 'onReady' | 'onShow' | 'onHide' | 'onDestroy' | 'onBackPress' | 'onMenuPress' | 'onRefresh' | 'onConfigurationChanged' | 'onReachTop' | 'onReachBottom' | 'onPageScroll';
+export type CombineKey = 'data' | 'private' | 'public' | 'props' | 'computed';

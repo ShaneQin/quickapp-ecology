@@ -1,19 +1,21 @@
 {
-  "name": "quickapp-async",
-  "version": "0.0.1-alpha.10",
+  "name": "quickapp-wrapper",
+  "version": "0.0.1-alpha.1",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup",
-    "prettier": "prettier --write src/**"
+    "build": "tsup"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
