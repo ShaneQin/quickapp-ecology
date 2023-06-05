@@ -98,6 +98,7 @@ var actionWrapper = (type) => {
     } else if (type === "component") {
       handleComponentAction(options);
     }
+    return options;
   };
 };
 var action_default = actionWrapper;
@@ -143,6 +144,7 @@ var mixinWrapper = (type) => {
       Reflect.deleteProperty(options, "mixins");
       _merge(mixins, options, type);
     }
+    return options;
   };
 };
 var mixin_default = mixinWrapper;
@@ -155,7 +157,11 @@ var compose = (...funcs) => {
   if (funcs.length === 1) {
     return funcs[0];
   }
-  return funcs.reduce((a, b) => (...args) => a(b(...args)));
+  return funcs.reduce((a, b) => {
+    return (...args) => {
+      return a(b(...args));
+    };
+  });
 };
 
 // src/index.ts
