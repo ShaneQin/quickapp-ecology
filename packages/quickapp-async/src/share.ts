@@ -1,11 +1,10 @@
 import share from '@system.share';
-import { AsyncShare } from './types';
+import { AsyncShareShare } from './types';
 
-export const asyncShare: AsyncShare = ({ type, data }) => {
+export const asyncShareShare: AsyncShareShare = (args) => {
   return new Promise((resolve, reject) => {
     share.share({
-      type,
-      data,
+      ...args,
       success: resolve,
       fail: reject,
       cancel: reject

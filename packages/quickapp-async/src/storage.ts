@@ -7,23 +7,22 @@ import {
   AsyncStorageKey
 } from './types';
 
-export const asyncStorageGet: AsyncStorageGet = ({ key }) => {
+export const asyncStorageGet: AsyncStorageGet = (args) => {
   return new Promise((resolve, reject) => {
     // @ts-ignore
     storage.get({
-      key,
+      ...args,
       success: resolve,
       fail: reject
     });
   });
 };
 
-export const asyncStorageSet: AsyncStorageSet = ({ key, value }) => {
+export const asyncStorageSet: AsyncStorageSet = (args) => {
   return new Promise((resolve, reject) => {
     // @ts-ignore
     storage.set({
-      key,
-      value,
+      ...args,
       success: resolve,
       fail: reject
     });
@@ -40,21 +39,21 @@ export const asyncStorageClear: AsyncStorageClear = () => {
   });
 };
 
-export const asyncStorageDelete: AsyncStorageDelete = ({ key }) => {
+export const asyncStorageDelete: AsyncStorageDelete = (args) => {
   return new Promise((resolve, reject) => {
     storage.delete({
-      key,
+      ...args,
       success: resolve,
       fail: reject
     });
   });
 };
 
-export const asyncStorageKey: AsyncStorageKey = ({ index }) => {
+export const asyncStorageKey: AsyncStorageKey = (args) => {
   return new Promise((resolve, reject) => {
     // @ts-ignore
     storage.key({
-      index,
+      ...args,
       success: resolve,
       fail: reject
     });

@@ -1,36 +1,37 @@
 type asyncFunc = () => Promise<any>;
 
-interface AsyncShareArgs {
+interface IShareShareArgs {
   type: string;
   data: string;
 }
-export type AsyncShare = (args: AsyncShareArgs) => Promise<{} | undefined>;
+export type AsyncShareShare = (args: IShareShareArgs) => Promise<{} | undefined>;
 
-interface AsyncshowDialogArgs {
+interface IPromptShowDialogButton {
+  text: string;
+  color?: string;
+}
+
+interface IPromptShowDialogArgs {
   title?: string;
   message?: string;
-  buttons?: [
-    {
-      text: string;
-      color?: string;
-    }
-  ];
+  buttons?: IPromptShowDialogButton[];
   autocancel?: boolean;
 }
-export type AsyncshowDialog = (
-  args: AsyncshowDialogArgs
+
+export type AsyncPromptShowDialog = (
+  args: IPromptShowDialogArgs
 ) => Promise<{ index: number } | undefined>;
 
-interface AsyncshowDialogArgs {
+interface IPromptShowContextMenuArgs {
   itemList: string[];
   itemColor?: string;
 }
 
-export type AsyncShowContextMenu = (
-  args: AsyncshowDialogArgs
+export type AsyncPromptShowContextMenu = (
+  args: IPromptShowContextMenuArgs
 ) => Promise<{ index: number } | undefined>;
 
-interface AsyncWebviewSetCookieArgs {
+interface IWebviewSetCookieArgs {
   domain: string;
   name: string;
   value?: string;
@@ -41,40 +42,40 @@ interface AsyncWebviewSetCookieArgs {
 }
 
 export type AsyncWebviewSetCookie = (
-  args: AsyncWebviewSetCookieArgs
+  args: IWebviewSetCookieArgs
 ) => Promise<void>;
 
-interface AsyncRequestUploadArgs {
+interface IRequestUploadFile {
+  filename?: string;
+  name?: string;
+  uri: string;
+  type?: string;
+}
+
+interface IRequestUploadData {
+  name: string;
+  value: string;
+}
+
+interface IRequestUploadArgs {
   url: string;
   header?: object;
   method?: string;
-  files: [
-    {
-      filename?: string;
-      name?: string;
-      uri: string;
-      type?: string;
-    }
-  ];
-  data?: [
-    {
-      name: string;
-      value: string;
-    }
-  ];
+  files: IRequestUploadFile[];
+  data?: IRequestUploadData[];
 }
 
-interface AsyncRequestUploadRes {
+interface IRequestUploadRes {
   code: number;
   data: string;
   headers: object;
 }
 
 export type AsyncRequestUpload = (
-  args: AsyncRequestUploadArgs
-) => Promise<AsyncRequestUploadRes>;
+  args: IRequestUploadArgs
+) => Promise<IRequestUploadRes>;
 
-interface AsyncRequestDownloadArgs {
+interface IRequestDownloadArgs {
   url: string;
   header?: string;
   description?: string;
@@ -82,32 +83,130 @@ interface AsyncRequestDownloadArgs {
 }
 
 export type AsyncRequestDownload = (
-  args: AsyncRequestDownloadArgs
+  args: IRequestDownloadArgs
 ) => Promise<{ token: string }>;
 
 export type AsyncRequestOnDownloadComplete = (args: {
   token: string;
 }) => Promise<{ uri: string }>;
 
-interface AsyncStorageGetArgs {
+interface IStorageGetArgs {
   key: string;
   default?: string;
 }
 
-export type AsyncStorageGet = (args: AsyncStorageGetArgs) => Promise<any>;
+export type AsyncStorageGet = (args: IStorageGetArgs) => Promise<any>;
 
-interface AsyncStorageSetArgs {
+interface IStorageSetArgs {
   key: string;
   value?: string;
 }
 
-export type AsyncStorageSet = (args: AsyncStorageSetArgs) => Promise<void>;
+export type AsyncStorageSet = (args: IStorageSetArgs) => Promise<void>;
 
 export type AsyncStorageClear = () => Promise<void>;
 
 export type AsyncStorageDelete = (args: { key: string }) => Promise<any>;
 
 export type AsyncStorageKey = (args: { index: number }) => Promise<string>;
+
+export type AsyncFileMove = (args: { srcUri: string, dstUri: string }) => Promise<string>;
+
+export type AsyncFileCopy = (args: { srcUri: string, dstUri: string }) => Promise<string>;
+
+interface IFileListItem {
+  uri: string;
+  length: number;
+  lastModifiedTime: number;
+}
+
+export type AsyncFileList = (args: { uri: string }) => Promise<{ fileList: IFileListItem[] }>;
+
+interface IFileGetRes {
+  uri: string;
+  length: number;
+  lastModifiedTime: number;
+  type: string;
+  subFiles: string[];
+}
+
+export type AsyncFileGet = (args: { uri: string, recursive?: boolean }) => Promise<IFileGetRes>;
+
+export type AsyncFileDelete = (args: { uri: string }) => Promise<void>;
+
+interface AsyncFileWriteTextArgs {
+  uri: string;
+  text: string;
+  encoding?: string;
+  append?: boolean;
+}
+
+export type AsyncFileWriteText = (args: AsyncFileWriteTextArgs) => Promise<void>;
+
+interface AsyncFileWriteArrayBufferArgs {
+  uri: string;
+  buffer: Uint8Array[];
+  position?: number;
+  append?: boolean;
+}
+
+export type AsyncFileWriteArrayBuffer = (args: AsyncFileWriteArrayBufferArgs) => Promise<void>;
+
+export type AsyncFileReadText = (args: { uri: string, encoding?: string }) => Promise<{ text: string }>;
+
+interface AsyncFileReadArrayBufferArgs {
+  uri: string;
+  position?: number;
+  length?: number;
+}
+
+export type AsyncFileReadArrayBuffer = (args: AsyncFileReadArrayBufferArgs) => Promise<{ buffer: Uint8Array }>;
+
+export type AsyncFileAccess = (args: { uri: string }) => Promise<void>;
+
+export type AsyncFileMkdir = (args: { uri: string, recursive?: boolean }) => Promise<void>;
+
+export type AsyncFileRmdir = (args: { uri: string, recursive?: boolean }) => Promise<void>;
+
+interface AsyncExchangeGetArgs {
+  key: string;
+  package?: string;
+  sign?: string;
+  scope?: string;
+}
+
+export type AsyncExchangeGet = (args: AsyncExchangeGetArgs) => Promise<{ value: string }>;
+
+interface AsyncExchangeSetArgs {
+  key: string;
+  value: string;
+  scope?: string;
+  package?: string;
+  sign?: string;
+}
+
+export type AsyncExchangeSet = (args: AsyncExchangeSetArgs) => Promise<void>;
+
+interface AsyncExchangeRemoveArgs {
+  key: string;
+  package: string;
+  sign: string;
+}
+
+export type AsyncExchangeRemove = (args: AsyncExchangeRemoveArgs) => Promise<void>;
+
+export type AsyncExchangeClear = () => Promise<void>;
+
+interface AsyncExchangeGrantPermissionArgs {
+  package: string;
+  sign: string;
+  key?: string;
+  writable?: boolean;
+}
+
+export type AsyncExchangeGrantPermission = (args: AsyncExchangeGrantPermissionArgs) => Promise<void>;
+
+export type AsyncExchangeRevokePermission = (args: { package: string, key?: string }) => Promise<void>;
 
 export type AsyncShortcutHasInstalled = () => Promise<boolean>;
 

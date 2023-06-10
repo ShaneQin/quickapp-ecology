@@ -14,6 +14,7 @@ export default defineConfig({
     '@system.share',
     '@system.shortcut',
     '@system.storage',
-    '@system.webview'
+    '@system.webview',
+    '@system.file'
   ]
 })

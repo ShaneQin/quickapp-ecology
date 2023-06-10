@@ -1,32 +1,20 @@
 import prompt from '@system.prompt';
-import { AsyncshowDialog, AsyncShowContextMenu } from './types';
+import { AsyncPromptShowDialog, AsyncPromptShowContextMenu } from './types';
 
-export const asyncshowDialog: AsyncshowDialog = ({
-  title,
-  message,
-  buttons,
-  autocancel
-}) => {
+export const asyncPromptShowDialog: AsyncPromptShowDialog = (args) => {
   return new Promise((resolve, reject) => {
     prompt.showDialog({
-      title,
-      message,
-      buttons,
-      autocancel,
+      ...args,
       success: resolve,
       cancel: reject
     });
   });
 };
 
-export const asyncShowContextMenu: AsyncShowContextMenu = ({
-  itemList,
-  itemColor
-}) => {
+export const asyncPromptShowContextMenu: AsyncPromptShowContextMenu = (args) => {
   return new Promise((resolve, reject) => {
     prompt.showContextMenu({
-      itemList,
-      itemColor,
+      ...args,
       success: resolve,
       cancel: reject
     });

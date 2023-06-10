@@ -5,50 +5,30 @@ import {
   AsyncRequestOnDownloadComplete
 } from './types';
 
-export const asyncRequestUpload: AsyncRequestUpload = ({
-  url,
-  header,
-  method,
-  files,
-  data
-}) => {
+export const asyncRequestUpload: AsyncRequestUpload = (args) => {
   return new Promise((resolve, reject) => {
     request.upload({
-      url,
-      header,
-      method,
-      files,
-      data,
+      ...args,
       success: resolve,
       fail: reject
     });
   });
 };
 
-export const asyncRequestDownload: AsyncRequestDownload = ({
-  url,
-  header,
-  description,
-  filename
-}) => {
+export const asyncRequestDownload: AsyncRequestDownload = (args) => {
   return new Promise((resolve, reject) => {
     request.download({
-      url,
-      header,
-      description,
-      filename,
+      ...args,
       success: resolve,
       fail: reject
     });
   });
 };
 
-export const asyncRequestOnDownloadComplete: AsyncRequestOnDownloadComplete = ({
-  token
-}) => {
+export const asyncRequestOnDownloadComplete: AsyncRequestOnDownloadComplete = (args) => {
   return new Promise((resolve, reject) => {
     request.onDownloadComplete({
-      token,
+      ...args,
       success: resolve,
       fail: reject
     });
