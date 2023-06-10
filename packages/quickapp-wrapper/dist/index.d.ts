@@ -20,10 +20,10 @@ type ComponentOptionsWithMixin = ComponentOptions & {
     mixins: PageOptions[];
 };
 
-declare const pageActionWrapper: (options: PageOptions | ComponentOptions) => void;
-declare const componentActionWrapper: (options: PageOptions | ComponentOptions) => void;
-declare const pageMixinWrapper: (options: PageOptionsWithMixin | ComponentOptionsWithMixin) => void;
-declare const componentMixinWrapper: (options: PageOptionsWithMixin | ComponentOptionsWithMixin) => void;
+declare const pageActionWrapper: (options: PageOptions | ComponentOptions) => PageOptions | ComponentOptions;
+declare const componentActionWrapper: (options: PageOptions | ComponentOptions) => PageOptions | ComponentOptions;
+declare const pageMixinWrapper: (options: PageOptionsWithMixin | ComponentOptionsWithMixin) => PageOptionsWithMixin | ComponentOptionsWithMixin;
+declare const componentMixinWrapper: (options: PageOptionsWithMixin | ComponentOptionsWithMixin) => PageOptionsWithMixin | ComponentOptionsWithMixin;
 declare const pageWrapper: (...args: any[]) => any;
 declare const componentWrapper: (...args: any[]) => any;
 

@@ -61,6 +61,7 @@ const actionWrapper = (type: OptionsType) => {
     } else if (type === 'component') {
       handleComponentAction(options);
     }
+    return options;
   }
 }
 

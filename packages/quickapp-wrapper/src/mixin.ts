@@ -29,8 +29,8 @@ const mixinWrapper = (type: OptionsType) => {
       Reflect.deleteProperty(options, 'mixins');
       _merge(mixins, options, type);
     }
+    return options;
   }
 }
 
 export default mixinWrapper;
-
