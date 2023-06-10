@@ -76,15 +76,14 @@ export const asyncDeviceGetTotalStorage: AsyncDeviceGetTotalStorage = () => {
   });
 };
 
-export const asyncDeviceGetAvailableStorage: AsyncDeviceGetAvailableStorage =
-  () => {
-    return new Promise((resolve, reject) => {
-      device.getAvailableStorage({
-        success: resolve,
-        fail: reject
-      });
+export const asyncDeviceGetAvailableStorage: AsyncDeviceGetAvailableStorage = () => {
+  return new Promise((resolve, reject) => {
+    device.getAvailableStorage({
+      success: resolve,
+      fail: reject
     });
-  };
+  });
+};
 
 export const asyncDeviceGetCpuInfo: AsyncDeviceGetCpuInfo = () => {
   return new Promise((resolve, reject) => {

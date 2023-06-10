@@ -1,11 +1,5 @@
 import storage from '@system.storage';
-import {
-  AsyncStorageGet,
-  AsyncStorageSet,
-  AsyncStorageClear,
-  AsyncStorageDelete,
-  AsyncStorageKey
-} from './types';
+import { AsyncStorageGet, AsyncStorageSet, AsyncStorageClear, AsyncStorageDelete, AsyncStorageKey } from './types';
 
 export const asyncStorageGet: AsyncStorageGet = (args) => {
   return new Promise((resolve, reject) => {

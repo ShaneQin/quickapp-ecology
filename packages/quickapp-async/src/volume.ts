@@ -1,4 +1,4 @@
-import volume from '@system.volume'
+import volume from '@system.volume';
 import { AsyncVolumeGetMediaValue, AsyncVolumeSetMediaValue } from './types';
 
 export const asyncVolumeGetMediaValue: AsyncVolumeGetMediaValue = () => {

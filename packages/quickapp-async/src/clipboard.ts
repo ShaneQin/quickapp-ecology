@@ -1,4 +1,4 @@
-import clipboard from '@system.clipboard'
+import clipboard from '@system.clipboard';
 import { AsyncClipboardSet, AsyncClipboardGet } from './types';
 
 export const asyncClipboardSet: AsyncClipboardSet = (args) => {

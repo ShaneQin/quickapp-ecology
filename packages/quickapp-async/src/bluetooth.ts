@@ -1,6 +1,6 @@
 import bluetooth from '@system.bluetooth';
-import { 
-  AsyncBluetoothOpenAdapter, 
+import {
+  AsyncBluetoothOpenAdapter,
   AsyncBluetoothCloseAdapter,
   AsyncBluetoothGetAdapterState,
   AsyncBluetoothStartDevicesDiscovery,
@@ -34,7 +34,6 @@ export const asyncBluetoothCloseAdapter: AsyncBluetoothCloseAdapter = (args = {}
     });
   });
 };
-
 
 export const asyncBluetoothGetAdapterState: AsyncBluetoothGetAdapterState = () => {
   return new Promise((resolve, reject) => {
@@ -146,5 +145,3 @@ export const asyncBluetootNotifyBLECharacteristicValueChange: AsyncBluetootNotif
     });
   });
 };
-
-

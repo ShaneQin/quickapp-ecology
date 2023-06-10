@@ -1,4 +1,4 @@
-import barcode from '@system.barcode'
+import barcode from '@system.barcode';
 import { AsyncBarcodeScan } from './types';
 
 export const asyncBarcodeScan: AsyncBarcodeScan = () => {

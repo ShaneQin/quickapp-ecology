@@ -1,5 +1,5 @@
 import geolocation from '@system.geolocation';
-import { 
+import {
   AsyncGeolocationGetLocation,
   AsyncGeolocationOpenLocation,
   AsyncGeolocationChooseLocation,

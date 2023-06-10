@@ -1,4 +1,4 @@
-import calendar from '@system.calendar'
+import calendar from '@system.calendar';
 import { AsyncCalendarInsert } from './types';
 
 export const asyncCalendarInsert: AsyncCalendarInsert = (args) => {

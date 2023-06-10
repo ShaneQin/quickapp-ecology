@@ -1,9 +1,5 @@
 import request from '@system.request';
-import {
-  AsyncRequestUpload,
-  AsyncRequestDownload,
-  AsyncRequestOnDownloadComplete
-} from './types';
+import { AsyncRequestUpload, AsyncRequestDownload, AsyncRequestOnDownloadComplete } from './types';
 
 export const asyncRequestUpload: AsyncRequestUpload = (args) => {
   return new Promise((resolve, reject) => {

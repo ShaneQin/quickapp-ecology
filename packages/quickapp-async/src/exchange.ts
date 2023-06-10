@@ -1,12 +1,5 @@
-import exchange from '@service.exchange'
-import { 
-  AsyncExchangeGet, 
-  AsyncExchangeSet, 
-  AsyncExchangeRemove, 
-  AsyncExchangeClear, 
-  AsyncExchangeGrantPermission,
-  AsyncExchangeRevokePermission
-} from './types';
+import exchange from '@service.exchange';
+import { AsyncExchangeGet, AsyncExchangeSet, AsyncExchangeRemove, AsyncExchangeClear, AsyncExchangeGrantPermission, AsyncExchangeRevokePermission } from './types';
 
 export const asyncExchangeGet: AsyncExchangeGet = (args) => {
   return new Promise((resolve, reject) => {
@@ -66,4 +59,3 @@ export const asyncExchangeRevokePermission: AsyncExchangeRevokePermission = (arg
     });
   });
 };
-

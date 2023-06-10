@@ -1,12 +1,12 @@
 import file from '@system.file';
-import { 
-  AsyncFileMove, 
-  AsyncFileCopy, 
-  AsyncFileList, 
-  AsyncFileGet, 
-  AsyncFileDelete, 
-  AsyncFileWriteText, 
-  AsyncFileWriteArrayBuffer, 
+import {
+  AsyncFileMove,
+  AsyncFileCopy,
+  AsyncFileList,
+  AsyncFileGet,
+  AsyncFileDelete,
+  AsyncFileWriteText,
+  AsyncFileWriteArrayBuffer,
   AsyncFileReadText,
   AsyncFileReadArrayBuffer,
   AsyncFileAccess,
