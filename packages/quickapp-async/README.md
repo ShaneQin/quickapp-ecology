@@ -1,4 +1,7 @@
 # quickapp-async
+![npm version](https://img.shields.io/npm/v/quickapp-async)
+![npm download](https://img.shields.io/npm/dm/quickapp-async)
+
 一个使用 `Promise` 封装的的快应用工具库。解决了快应用开发过程中调用框架提供的 API 不能使用 `async`/`await` 的问题。
 ## 用法
 ### 安装
@@ -20,7 +23,7 @@ export default {
 
 ```
 ## 方法索引
-方法名通常是 `async` + 模块名 + 方法。例如 `network.getType()` 对应的方法名 `asyncNetworkGetType`
+方法名通常是 `async` + 模块名 + 方法，例如 `network.getType()` 对应的方法名 `asyncNetworkGetType`。
 ### 界面交互
 #### 分享 share
 * `asyncShareShare`：[share.share(OBJECT)](https://doc.quickapp.cn/features/system/share.html#shareshareobject) 分享数据到其他 app
@@ -131,13 +134,13 @@ export default {
 * `asyncBluetoothStopDevicesDiscovery`：[bluetooth.getAdapterState(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothstopdevicesdiscoveryobject) 停止搜寻附近的蓝牙外围设备
 * `asyncBluetoothGetDevices`：[bluetooth.getDevices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothstopdevicesdiscoveryobject) 获取在蓝牙模块生效期间所有已发现的蓝牙设备
 * `asyncBluetoothGetConnectedDevices`：[bluetooth.getConnectedDevices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetconnecteddevicesobject) 根据 uuid 获取处于已连接状态的设备
-* `AsyncBluetoothCreateBLEConnection`：[bluetooth.createBLEConnection(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothcreatebleconnectionobject) 连接低功耗蓝牙设备
-* `AsyncBluetoothCloseBLEConnection`：[bluetooth.closeBLEConnection (OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothclosebleconnection-object) 断开与低功耗蓝牙设备的连接
-* `AsyncBluetoothGetBLEDeviceServices`：[bluetooth.getBLEDeviceServices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledeviceservicesobject) 获取蓝牙设备所有服务(service)
-* `AsyncBluetoothGetBLEDeviceCharacteristics`：[bluetooth.getBLEDeviceCharacteristics(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledevicecharacteristicsobject) 获取蓝牙设备某个服务中所有特征值(characteristic)
-* `AsyncBluetoothReadBLECharacteristicValue`：[bluetooth.readBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothreadblecharacteristicvalueobject) 读取低功耗蓝牙设备的特征值的二进制数据值
-* `AsyncBluetoothWriteBLECharacteristicValue`：[bluetooth.writeBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothwriteblecharacteristicvalueobject) 向低功耗蓝牙设备特征值中写入二进制数据
-* `AsyncBluetootNotifyBLECharacteristicValueChange`：[bluetooth.notifyBLECharacteristicValueChange(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothnotifyblecharacteristicvaluechangeobject) 启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值
+* `asyncBluetoothCreateBLEConnection`：[bluetooth.createBLEConnection(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothcreatebleconnectionobject) 连接低功耗蓝牙设备
+* `asyncBluetoothCloseBLEConnection`：[bluetooth.closeBLEConnection (OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothclosebleconnection-object) 断开与低功耗蓝牙设备的连接
+* `asyncBluetoothGetBLEDeviceServices`：[bluetooth.getBLEDeviceServices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledeviceservicesobject) 获取蓝牙设备所有服务(service)
+* `asyncBluetoothGetBLEDeviceCharacteristics`：[bluetooth.getBLEDeviceCharacteristics(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledevicecharacteristicsobject) 获取蓝牙设备某个服务中所有特征值(characteristic)
+* `asyncBluetoothReadBLECharacteristicValue`：[bluetooth.readBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothreadblecharacteristicvalueobject) 读取低功耗蓝牙设备的特征值的二进制数据值
+* `asyncBluetoothWriteBLECharacteristicValue`：[bluetooth.writeBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothwriteblecharacteristicvalueobject) 向低功耗蓝牙设备特征值中写入二进制数据
+* `asyncBluetootNotifyBLECharacteristicValueChange`：[bluetooth.notifyBLECharacteristicValueChange(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothnotifyblecharacteristicvaluechangeobject) 启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值
 #### 闹钟 alarm
 * `asyncAlarmSetAlarm`：[alarm.setAlarm (OBJECT)](https://doc.quickapp.cn/features/system/alarm.html#alarmsetalarm-object) 设置闹钟，每次添加弹出提示框，同意后调用接口添加
 * `asyncAlarmIsAvailable`：[alarm.isAvailable(OBJECT)](https://doc.quickapp.cn/features/system/alarm.html#alarmisavailableobject-1120) 获取闹钟能力可用状态

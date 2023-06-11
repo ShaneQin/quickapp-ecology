@@ -1,3 +1,5 @@
+import { asyncStorageGet } from 'quickapp-async';
+
 export default class QuickAppPlugins {
   promiseFinally() {
     Promise.prototype.finally = function (callback: any) {
@@ -10,5 +12,18 @@ export default class QuickAppPlugins {
           })
       );
     };
+  }
+}
+
+export const asyncStorageGetS = async (key: string, dVal = '') => {
+  const data = await asyncStorageGet({ key });
+  if (data) {
+    try {
+      return JSON.parse(data);
+    } catch (err) {
+      return data || dVal
+    }
+  } else {
+    return dVal
   }
 }

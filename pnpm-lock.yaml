@@ -26,7 +26,11 @@ importers:
 
   packages/quickapp-async: {}
 
-  packages/quickapp-plugins: {}
+  packages/quickapp-plugins:
+    dependencies:
+      quickapp-async:
+        specifier: workspace:^
+        version: link:../quickapp-async
 
   packages/quickapp-wrapper:
     dependencies:

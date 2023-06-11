@@ -1,5 +1,6 @@
 declare class QuickAppPlugins {
     promiseFinally(): void;
 }
+declare const asyncStorageGetS: (key: string, dVal?: string) => Promise<any>;
 
-export { QuickAppPlugins as default };
+export { asyncStorageGetS, QuickAppPlugins as default };
