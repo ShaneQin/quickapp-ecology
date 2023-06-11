@@ -1,10 +1,26 @@
 # quickapp-async
 一个使用 `Promise` 封装的的快应用工具库。解决了快应用开发过程中调用框架提供的 API 不能使用 `async`/`await` 的问题。
 ## 用法
+### 安装
 ```
 npm install quickapp-async -S
 ```
+### 调用
+以获取存储内容方法为例
+```js
+import { asyncStorageGet } from 'quickapp-async';
+
+export default {
+  async onInit() {
+    const test = await asyncStorageGet({ 
+      key: 'test' 
+    })
+  }
+}
+
+```
 ## 方法索引
+方法名通常是 `async` + 模块名 + 方法。例如 `network.getType()` 对应的方法名 `asyncNetworkGetType`
 ### 界面交互
 #### 分享 share
 * `asyncShareShare`：[share.share(OBJECT)](https://doc.quickapp.cn/features/system/share.html#shareshareobject) 分享数据到其他 app
@@ -129,3 +145,5 @@ npm install quickapp-async -S
 * `asyncZipDecompress`：[zip.decompress(OBJECT)](https://doc.quickapp.cn/features/system/zip.html#zipdecompressobject) 解压文件
 #### 锁屏 keyguard
 * `asyncKeyguardGetKeyguardLockedStatus`：[keyguard.getKeyguardLockedStatus(OBJECT)](https://doc.quickapp.cn/features/system/keyguard.html#keyguardgetkeyguardlockedstatusobject) 获取快应用当前环境是否为锁屏状态
+
+### 更多方法稍后带来……
