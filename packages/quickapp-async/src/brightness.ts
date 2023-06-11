@@ -1,5 +1,11 @@
 import brightness from '@system.brightness';
-import { AsyncBrightnessGetValue, AsyncBrightnessSetValue, AsyncBrightnessGetMode, AsyncBrightnessSetMode, AsyncBrightnessSetKeepScreenOn } from './types';
+import {
+  AsyncBrightnessGetValue,
+  AsyncBrightnessSetValue,
+  AsyncBrightnessGetMode,
+  AsyncBrightnessSetMode,
+  AsyncBrightnessSetKeepScreenOn
+} from './types';
 
 export const asyncBrightnessGetValue: AsyncBrightnessGetValue = () => {
   return new Promise((resolve, reject) => {

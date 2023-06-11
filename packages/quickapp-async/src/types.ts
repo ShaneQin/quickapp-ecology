@@ -1,3 +1,17 @@
+export interface IAppGetInfoRes {
+  packageName: string;
+  icon: string;
+  name: string;
+  versionName: string;
+  versionCode: number;
+  logLevel: string;
+  source: {
+    packageName: string;
+    type: string;
+    extra: object;
+  };
+}
+
 interface IShareShareArgs {
   type: string;
   data: string;
@@ -53,8 +67,8 @@ interface IRequestUploadArgs {
   url: string;
   header?: object;
   method?: string;
-  files: IRequestUploadFile[];
-  data?: IRequestUploadData[];
+  files: [IRequestUploadFile];
+  data?: [IRequestUploadData];
 }
 
 interface IRequestUploadRes {
@@ -75,6 +89,22 @@ interface IRequestDownloadArgs {
 export type AsyncRequestDownload = (args: IRequestDownloadArgs) => Promise<{ token: string }>;
 
 export type AsyncRequestOnDownloadComplete = (args: { token: string }) => Promise<{ uri: string }>;
+
+export interface IFetchFetchArgs {
+  url: string;
+  data?: string | object | ArrayBuffer;
+  header?: object;
+  method?: string;
+  responseType?: string;
+}
+
+export interface IFetchFetchRes {
+  data: {
+    code: number;
+    data: string | object | ArrayBuffer;
+    headers: object;
+  };
+}
 
 interface IStorageGetArgs {
   key: string;
@@ -270,6 +300,10 @@ interface AsyncGeolocationReverseGeocodeQueryRes {
 
 export type AsyncGeolocationReverseGeocodeQuery = (args: AsyncGeolocationReverseGeocodeQueryArgs) => Promise<AsyncGeolocationReverseGeocodeQueryRes>;
 
+export type AsyncShortcutHasInstalled = () => Promise<boolean>;
+
+export type AsyncShortcuInstall = (args: { message?: string }) => Promise<void>;
+
 interface AsyncCalendarInsertArgs {
   title: string;
   startDate: number;
@@ -283,177 +317,6 @@ interface AsyncCalendarInsertArgs {
 }
 
 export type AsyncCalendarInsert = (args: AsyncCalendarInsertArgs) => Promise<any>;
-
-export type AsyncTelecomGetTelecomInfo = () => Promise<{
-  is5GDevice: boolean;
-  is5GSwitchOpened: boolean;
-}>;
-
-export type AsyncBrightnessGetValue = () => Promise<{ value: number }>;
-
-export type AsyncBrightnessSetValue = (args: { value: number }) => Promise<void>;
-
-export type AsyncBrightnessGetMode = () => Promise<{ mode: number }>;
-
-export type AsyncBrightnessSetMode = (args: { mode: number }) => Promise<void>;
-
-export type AsyncBrightnessSetKeepScreenOn = (args: { keepScreenOn: boolean }) => Promise<void>;
-
-export type AsyncVolumeGetMediaValue = () => Promise<{ value: number }>;
-
-export type AsyncVolumeSetMediaValue = (args: { value: number }) => Promise<void>;
-
-export type AsyncBatteryGetStatus = () => Promise<{
-  charging: boolean;
-  level: number;
-}>;
-
-export type AsyncPkgHasInstalled = (args: { package: string }) => Promise<{ result: boolean }>;
-
-export type AsyncPkgInstall = (args: { package: string }) => Promise<{ result: boolean }>;
-
-export type AsyncPkgGetInfo = (args: { package: string }) => Promise<{ versionCode: number; versionName: string }>;
-
-export type AsyncPkgGetSignatureDigests = (args: { package: string }) => Promise<{ signatureDigests: any[] }>;
-
-interface AsyncRecordStartArgs {
-  duration?: number;
-  sampleRate?: number;
-  numberOfChannels?: number;
-  encodeBitRate?: number;
-  format?: string;
-}
-
-export type AsyncRecordStart = (args: AsyncRecordStartArgs) => Promise<{ uri: string }>;
-
-interface IContactItem {
-  displayName: string;
-  number: string;
-}
-
-export type AsyncContactPick = () => Promise<IContactItem>;
-
-export type AsyncContactList = () => Promise<{ contactList: IContactItem[] }>;
-
-export type AsyncSmsSend = (args: { address: string; content: string }) => Promise<void>;
-
-export type AsyncSmsReadSafely = (args: { timeout?: number }) => Promise<{ message: string }>;
-
-interface AsyncWifiConnectArgs {
-  SSID: string;
-  BSSID: string;
-  password?: string;
-}
-
-export type AsyncWifiConnect = (args: AsyncWifiConnectArgs) => Promise<void>;
-
-export type AsyncWifiScan = () => Promise<void>;
-
-interface AsyncWifiGetConnectedWifiRes {
-  SSID: string;
-  BSSID: string;
-  secure: boolean;
-  signalStrength: number;
-}
-
-export type AsyncWifiGetConnectedWifi = () => Promise<AsyncWifiGetConnectedWifiRes>;
-
-export type AsyncBluetoothOpenAdapter = (args?: { operateAdapter?: boolean }) => Promise<void>;
-
-export type AsyncBluetoothCloseAdapter = (args?: { operateAdapter?: boolean }) => Promise<void>;
-
-export type AsyncBluetoothGetAdapterState = () => Promise<{
-  available: boolean;
-  discovering: boolean;
-}>;
-
-interface AsyncBluetoothStartDevicesDiscoveryArgs {
-  service?: string[];
-  allowDuplicatesKey?: boolean;
-  interval?: number;
-}
-
-export type AsyncBluetoothStartDevicesDiscovery = (args?: AsyncBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
-
-export type AsyncBluetoothStopDevicesDiscovery = () => Promise<void>;
-
-interface IBluetoothDeviceItem {
-  name: string;
-  deviceId: string;
-  RSSI: number;
-  advertisData: ArrayBuffer;
-  advertisServiceUUIDs: string[];
-  localName: string;
-  serviceData: object;
-}
-
-export type AsyncBluetoothGetDevices = () => Promise<{
-  devices: IBluetoothDeviceItem[];
-}>;
-
-export type AsyncBluetoothCreateBLEConnection = (args: { deviceId: string; timeout?: number }) => Promise<void>;
-
-export type AsyncBluetoothCloseBLEConnection = (args: { deviceId: string }) => Promise<void>;
-
-export type AsyncBluetoothGetBLEDeviceServices = (args: { deviceId: string }) => Promise<{ services: { uuid: string; isPrimary: boolean }[] }>;
-
-interface IBLEDeviceCharacteristicsItem {
-  uuid: string;
-  properties: {
-    read: boolean;
-    write: boolean;
-    notify: boolean;
-    indicate: boolean;
-  };
-}
-
-interface AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
-  deviceId: string;
-  serviceId: string;
-}
-
-export type AsyncBluetoothGetBLEDeviceCharacteristics = (args: AsyncBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{ characteristics: IBLEDeviceCharacteristicsItem[] }>;
-
-interface AsyncBluetoothReadBLECharacteristicValueArgs extends AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
-  characteristicId: string;
-}
-
-export type AsyncBluetoothReadBLECharacteristicValue = (args: AsyncBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
-
-interface AsyncBluetoothWriteBLECharacteristicValueArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
-  value: ArrayBuffer;
-}
-
-export type AsyncBluetoothWriteBLECharacteristicValue = (args: AsyncBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
-
-interface AsyncBluetootNotifyBLECharacteristicValueChangeArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
-  state: boolean;
-}
-
-export type AsyncBluetootNotifyBLECharacteristicValueChange = (args: AsyncBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
-
-interface AsyncAlarmSetAlarmArgs {
-  hour: number;
-  minute: number;
-  message?: string;
-  vibrate?: boolean;
-  days?: number[];
-  ringtone: string;
-}
-
-export type AsyncAlarmSetAlarm = (args: AsyncAlarmSetAlarmArgs) => Promise<void>;
-
-export type AsyncAlarmIsAvailable = () => Promise<{ isAvailable: boolean }>;
-
-export type AsyncZipDecompress = (args: { srcUri: string; dstUri: string }) => Promise<void>;
-
-export type AsyncKeyguardGetKeyguardLockedStatus = () => Promise<{
-  isKeyguardLocked: boolean;
-}>;
-
-export type AsyncShortcutHasInstalled = () => Promise<boolean>;
-
-export type AsyncShortcuInstall = (args: { message?: string }) => Promise<void>;
 
 export interface AsyncNetworkGetTypeRes {
   metered: boolean;
@@ -535,32 +398,173 @@ export type AsyncDeviceGetCpuInfo = () => Promise<{ cpuInfo: string }>;
 
 export type AsyncDeviceGetOAID = () => Promise<{ oaid: string | undefined }>;
 
-export interface AsyncFetchFetchArgs {
-  url: string;
-  data?: string | object | ArrayBuffer;
-  header?: object;
-  method?: string;
-  responseType?: string;
+export type AsyncTelecomGetTelecomInfo = () => Promise<{
+  is5GDevice: boolean;
+  is5GSwitchOpened: boolean;
+}>;
+
+export type AsyncBrightnessGetValue = () => Promise<{ value: number }>;
+
+export type AsyncBrightnessSetValue = (args: { value: number }) => Promise<void>;
+
+export type AsyncBrightnessGetMode = () => Promise<{ mode: number }>;
+
+export type AsyncBrightnessSetMode = (args: { mode: number }) => Promise<void>;
+
+export type AsyncBrightnessSetKeepScreenOn = (args: { keepScreenOn: boolean }) => Promise<void>;
+
+export type AsyncVolumeGetMediaValue = () => Promise<{ value: number }>;
+
+export type AsyncVolumeSetMediaValue = (args: { value: number }) => Promise<void>;
+
+export type AsyncBatteryGetStatus = () => Promise<{
+  charging: boolean;
+  level: number;
+}>;
+
+export type AsyncPkgHasInstalled = (args: { package: string }) => Promise<{ result: boolean }>;
+
+export type AsyncPkgInstall = (args: { package: string }) => Promise<{ result: boolean }>;
+
+export type AsyncPkgGetInfo = (args: { package: string }) => Promise<{ versionCode: number; versionName: string }>;
+
+export type AsyncPkgGetSignatureDigests = (args: { package: string }) => Promise<{ signatureDigests: any[] }>;
+
+interface AsyncRecordStartArgs {
+  duration?: number;
+  sampleRate?: number;
+  numberOfChannels?: number;
+  encodeBitRate?: number;
+  format?: string;
 }
 
-export interface AsyncFetchFetchRes {
-  data: {
-    code: number;
-    data: string | object | ArrayBuffer;
-    headers: object;
-  };
+export type AsyncRecordStart = (args?: AsyncRecordStartArgs) => Promise<{ uri: string }>;
+
+interface IContactItem {
+  displayName: string;
+  number: string;
 }
 
-export interface AppGetInfoRes {
-  packageName: string;
-  icon: string;
+export type AsyncContactPick = () => Promise<IContactItem>;
+
+export type AsyncContactList = () => Promise<{ contactList: IContactItem[] }>;
+
+export type AsyncSmsSend = (args: { address: string; content: string }) => Promise<void>;
+
+export type AsyncSmsReadSafely = (args: { timeout?: number }) => Promise<{ message: string }>;
+
+interface AsyncWifiConnectArgs {
+  SSID: string;
+  BSSID: string;
+  password?: string;
+}
+
+export type AsyncWifiConnect = (args: AsyncWifiConnectArgs) => Promise<void>;
+
+export type AsyncWifiScan = () => Promise<void>;
+
+interface AsyncWifiGetConnectedWifiRes {
+  SSID: string;
+  BSSID: string;
+  secure: boolean;
+  signalStrength: number;
+}
+
+export type AsyncWifiGetConnectedWifi = () => Promise<AsyncWifiGetConnectedWifiRes>;
+
+export type AsyncBluetoothOpenAdapter = (args?: { operateAdapter?: boolean }) => Promise<void>;
+
+export type AsyncBluetoothCloseAdapter = (args?: { operateAdapter?: boolean }) => Promise<void>;
+
+export type AsyncBluetoothGetAdapterState = () => Promise<{
+  available: boolean;
+  discovering: boolean;
+}>;
+
+interface AsyncBluetoothStartDevicesDiscoveryArgs {
+  service?: string[];
+  allowDuplicatesKey?: boolean;
+  interval?: number;
+}
+
+export type AsyncBluetoothStartDevicesDiscovery = (args?: AsyncBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
+
+export type AsyncBluetoothStopDevicesDiscovery = () => Promise<void>;
+
+interface IBluetoothDeviceItem {
   name: string;
-  versionName: string;
-  versionCode: number;
-  logLevel: string;
-  source: {
-    packageName: string;
-    type: string;
-    extra: object;
+  deviceId: string;
+  
+}
+
+interface IBluetoothDeviceItemPlus extends IBluetoothDeviceItem{
+  RSSI: number;
+  advertisData: ArrayBuffer;
+  advertisServiceUUIDs: string[];
+  localName: string;
+  serviceData: object;
+}
+
+export type AsyncBluetoothGetDevices = () => Promise<{devices: IBluetoothDeviceItemPlus[]}>;
+
+export type AsyncBluetoothGetConnectedDevices = (args: { services: string[] }) => Promise<{devices: IBluetoothDeviceItem[]}>;
+
+export type AsyncBluetoothCreateBLEConnection = (args: { deviceId: string; timeout?: number }) => Promise<void>;
+
+export type AsyncBluetoothCloseBLEConnection = (args: { deviceId: string }) => Promise<void>;
+
+export type AsyncBluetoothGetBLEDeviceServices = (args: { deviceId: string }) => Promise<{ services: { uuid: string; isPrimary: boolean }[] }>;
+
+interface IBLEDeviceCharacteristicsItem {
+  uuid: string;
+  properties: {
+    read: boolean;
+    write: boolean;
+    notify: boolean;
+    indicate: boolean;
   };
 }
+
+interface AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+  deviceId: string;
+  serviceId: string;
+}
+
+export type AsyncBluetoothGetBLEDeviceCharacteristics = (args: AsyncBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{ characteristics: IBLEDeviceCharacteristicsItem[] }>;
+
+interface AsyncBluetoothReadBLECharacteristicValueArgs extends AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+  characteristicId: string;
+}
+
+export type AsyncBluetoothReadBLECharacteristicValue = (args: AsyncBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
+
+interface AsyncBluetoothWriteBLECharacteristicValueArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+  value: ArrayBuffer;
+}
+
+export type AsyncBluetoothWriteBLECharacteristicValue = (args: AsyncBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
+
+interface AsyncBluetootNotifyBLECharacteristicValueChangeArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+  state: boolean;
+}
+
+export type AsyncBluetootNotifyBLECharacteristicValueChange = (args: AsyncBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
+
+interface AsyncAlarmSetAlarmArgs {
+  hour: number;
+  minute: number;
+  message?: string;
+  vibrate?: boolean;
+  days?: number[];
+  ringtone: string;
+}
+
+export type AsyncAlarmSetAlarm = (args: AsyncAlarmSetAlarmArgs) => Promise<void>;
+
+export type AsyncAlarmIsAvailable = () => Promise<{ isAvailable: boolean }>;
+
+export type AsyncZipDecompress = (args: { srcUri: string; dstUri: string }) => Promise<void>;
+
+export type AsyncKeyguardGetKeyguardLockedStatus = () => Promise<{
+  isKeyguardLocked: boolean;
+}>;

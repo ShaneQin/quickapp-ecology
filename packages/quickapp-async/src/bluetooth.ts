@@ -6,6 +6,7 @@ import {
   AsyncBluetoothStartDevicesDiscovery,
   AsyncBluetoothStopDevicesDiscovery,
   AsyncBluetoothGetDevices,
+  AsyncBluetoothGetConnectedDevices,
   AsyncBluetoothCreateBLEConnection,
   AsyncBluetoothCloseBLEConnection,
   AsyncBluetoothGetBLEDeviceServices,
@@ -68,6 +69,16 @@ export const asyncBluetoothStopDevicesDiscovery: AsyncBluetoothStopDevicesDiscov
 export const asyncBluetoothGetDevices: AsyncBluetoothGetDevices = () => {
   return new Promise((resolve, reject) => {
     bluetooth.getDevices({
+      success: resolve,
+      fail: reject
+    });
+  });
+};
+
+export const asyncBluetoothGetConnectedDevices: AsyncBluetoothGetConnectedDevices = (args) => {
+  return new Promise((resolve, reject) => {
+    bluetooth.getConnectedDevices({
+      ...args,
       success: resolve,
       fail: reject
     });

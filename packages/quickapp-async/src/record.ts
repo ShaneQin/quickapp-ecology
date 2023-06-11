@@ -1,7 +1,7 @@
 import record from '@system.record';
 import { AsyncRecordStart } from './types';
 
-export const asyncRecordStart: AsyncRecordStart = (args) => {
+export const asyncRecordStart: AsyncRecordStart = (args = {}) => {
   return new Promise((resolve, reject) => {
     record.start({
       ...args,

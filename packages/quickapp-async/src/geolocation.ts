@@ -61,6 +61,8 @@ export const asyncGeolocationReverseGeocodeQuery: AsyncGeolocationReverseGeocode
   return new Promise((resolve, reject) => {
     geolocation.reverseGeocodeQuery({
       ...args,
+      // 类型有误，按照文档 poiInfoList 是数组
+      // @ts-ignore
       success: resolve,
       fail: reject
     });

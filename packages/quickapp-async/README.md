@@ -45,3 +45,87 @@ npm install quickapp-async -S
 * `asyncExchangeClear`：[exchange.clear(OBJECT)](https://doc.quickapp.cn/features/service/exchange.html#exchangeclear-object) 从快应用平台清除当前快应用的应用空间的数据
 * `asyncExchangeGrantPermission`：[exchange.grantPermission(OBJECT)](https://doc.quickapp.cn/features/service/exchange.html#exchangegrantpermission-object) 授予指定快应用读取 `get`、修改 `set`、删除 `remove` 数据的权限
 * `asyncExchangeRevokePermission`：[exchange.revokePermission(OBJECT)](https://doc.quickapp.cn/features/service/exchange.html#exchangerevokepermission-object) 取消授予指定快应用读取 `get`、修改 `set`、删除 `remove` 数据的权限
+### 系统能力
+#### 二维码 barcode
+* `asyncBarcodeScan`：[barcode.scan(OBJECT)](https://doc.quickapp.cn/features/system/barcode.html#barcodescanobject) 扫描二维码
+#### 剪贴板 clipboard
+* `asyncClipboardSet`：[clipboard.set(OBJECT)](https://doc.quickapp.cn/features/system/clipboard.html#clipboardsetobject) 修改剪贴板内容
+* `asyncClipboardGet`：[clipboard.get(OBJECT)](https://doc.quickapp.cn/features/system/clipboard.html#clipboardgetobject) 读取剪贴板内容
+#### 地理位置 geolocation
+* `asyncGeolocationGetLocation`：[geolocation.getLocation(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationgetlocationobject) 获取地理位置
+* `asyncGeolocationOpenLocation`：[geolocation.openLocation(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationopenlocationobject-1070) 使用快应用内置地图查看位置，并且允许拉起第三方地图应用发起导航
+* `asyncGeolocationChooseLocation`：[geolocation.chooseLocation(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationchooselocationobject-1070) 打开快应用内置地图选择位置
+* `asyncGeolocationGetLocationType`：[geolocation.getLocationType(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationgetlocationtypeobject-1010) 获取系统当前支持的定位类型
+* `asyncGeolocationGeocodeQuery`：[geolocation.geocodeQuery(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationgeocodequeryobject-1080) 地理编码，只支持国内地理位置
+* `asyncGeolocationReverseGeocodeQuery`：[geolocation.reverseGeocodeQuery(OBJECT)](https://doc.quickapp.cn/features/system/geolocation.html#geolocationreversegeocodequeryobject-1080) 逆地理编码，只支持国内地理位置
+#### 桌面图标 shortcut
+* `asyncShortcutHasInstalled`：[shortcut.hasInstalled(OBJECT)](https://doc.quickapp.cn/features/system/shortcut.html#shortcuthasinstalledobject) 获取桌面图标是否创建
+* `asyncShortcuInstall`：[shortcut.install(OBJECT)](https://doc.quickapp.cn/features/system/shortcut.html#shortcutinstallobject) 创建桌面图标
+#### 日历事件 calendar
+* `asyncCalendarInsert`：[calendar.insert(OBJECT)](https://doc.quickapp.cn/features/system/calendar.html#calendarinsertobject) 插入日历事件
+#### 网络状态 network
+* `asyncNetworkGetType`：[network.getType(OBJECT)](https://doc.quickapp.cn/features/system/network.html#networkgettypeobject) 获取网络类型
+* `asyncNetworkGetSimOperators`：[network.getSimOperators(OBJECT)](https://doc.quickapp.cn/features/system/network.html#networkgetsimoperatorsobject-1070) 获取Sim卡的运营商信息
+#### 设备信息 device
+* `asyncDeviceGetInfo`：[device.getInfo(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetinfoobject) 获取设备信息
+* `asyncDeviceGetId`：[device.getId(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetinfoobject) 批量获取设备标识
+* `asyncDeviceGetDeviceId`：[device.getDeviceId(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetdeviceidobject-1000) 获取设备唯一标识
+* `asyncDeviceGetUserId`：[device.getUserId(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetuseridobject-1000) 获取用户唯一标识
+* `asyncDeviceGetAdvertisingId`：[device.getAdvertisingId(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetadvertisingidobject-1000) 获取广告唯一标识
+* `asyncDeviceGetSerial`：[device.getSerial(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetserialobject-1040) 获取设备序列号
+* `asyncDeviceGetTotalStorage`：[device.getTotalStorage(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegettotalstorageobject-1000) 获取存储空间的总大小
+* `asyncDeviceGetAvailableStorage`：[device.getAvailableStorage(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetavailablestorageobject-1000) 获取存储空间的可用大小
+* `asyncDeviceGetCpuInfo`：[device.getCpuInfo(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetcpuinfoobject-1000) 返回 CPU 信息
+* `asyncDeviceGetOAID`：[device.getOAID(OBJECT)](https://doc.quickapp.cn/features/system/device.html#devicegetoaidobject-1060) 返回厂商设备标识符中的 OAID（匿名设备标识符）
+#### 通信信息 telecom
+* `asyncTelecomGetTelecomInfo`：[telecom.getTelecomInfo(OBJECT)](https://doc.quickapp.cn/features/system/telecom.html#telecomgettelecominfoobject) 获取设备通信信息
+#### 屏幕亮度 brightness
+* `asyncBrightnessGetValue`：[brightness.getValue(OBJECT)](https://doc.quickapp.cn/features/system/brightness.html#brightnessgetvalueobject) 获得当前屏幕亮度值
+* `asyncBrightnessSetValue`：[brightness.setValue(OBJECT)](https://doc.quickapp.cn/features/system/brightness.html#brightnesssetvalueobject) 设置当前屏幕亮度值
+* `asyncBrightnessGetMode`：[brightness.getMode(OBJECT)](https://doc.quickapp.cn/features/system/brightness.html#brightnessgetmodeobject) 获得当前屏幕亮度模式
+* `asyncBrightnessSetMode`：[brightness.setMode(OBJECT)](https://doc.quickapp.cn/features/system/brightness.html#brightnesssetmodeobject) 设置当前屏幕亮度模式
+* `asyncBrightnessSetKeepScreenOn`：[brightness.setKeepScreenOn(OBJECT)](https://doc.quickapp.cn/features/system/brightness.html#brightnesssetkeepscreenonobject-1060) 设置是否保持常亮状态
+#### 系统音量 volume
+* `asyncVolumeGetMediaValue`：[volume.getMediaValue(OBJECT)](https://doc.quickapp.cn/features/system/volume.html#volumegetmediavalueobject) 获取当前多媒体音量
+* `asyncVolumeSetMediaValue`：[volume.setMediaValue(OBJECT)](https://doc.quickapp.cn/features/system/volume.html#volumesetmediavalueobject) 设置当前多媒体音量
+#### 电量信息 battery
+* `asyncBatteryGetStatus`：[battery.getStatus(OBJECT)](https://doc.quickapp.cn/features/system/battery.html#batterygetstatusobject) 获取当前设备的电量信息
+#### 应用管理 package
+* `asyncPkgHasInstalled`：[pkg.hasInstalled(OBJECT)](https://doc.quickapp.cn/features/system/package.html#pkghasinstalledobject) 检测应用是否存在
+* `asyncPkgInstall`：[pkg.install(OBJECT)](https://doc.quickapp.cn/features/system/package.html#pkginstallobject) 安装应用
+* `asyncPkgGetInfo`：[pkg.getInfo(OBJECT)](https://doc.quickapp.cn/features/system/package.html#pkggetinfoobject-1070) 获取应用版本号、版本名称信息
+* `asyncPkgGetSignatureDigests`：[pkg.getSignatureDigests(OBJECT)](https://doc.quickapp.cn/features/system/package.html#pkggetsignaturedigestsobject-1070) 获取应用签名摘要信息
+#### 录音 record
+* `asyncRecordStart`：[record.start(OBJECT)](https://doc.quickapp.cn/features/system/record.html#recordstartobject) 开始录音
+#### 联系人 contact
+* `asyncContactPick`：[contact.pick(OBJECT)](https://doc.quickapp.cn/features/system/contact.html#contactpickobject) 选择联系人
+* `asyncContactList`：[contact.list(OBJECT)](https://doc.quickapp.cn/features/system/contact.html#contactlistobject-1050) 获取通讯录所有联系人列表
+#### 发送短信 sms
+* `asyncSmsSend`：[sms.send(OBJECT)](https://doc.quickapp.cn/features/system/sms.html#smssendobject) 发送短信
+* `asyncSmsReadSafely`：[sms.readSafely(OBJECT)](https://doc.quickapp.cn/features/system/sms.html#smsreadsafelyobject-1050) 获取手机短信内容
+#### Wi-Fi wifi
+* `asyncWifiConnect`：[wifi.connect(OBJECT)](https://doc.quickapp.cn/features/system/wifi.html#wificonnectobject) 连接 Wi-Fi
+* `asyncWifiScan`：[wifi.scan(OBJECT)](https://doc.quickapp.cn/features/system/wifi.html#wifiscanobject) 请求获取 Wi-Fi 列表
+* `asyncWifiGetConnectedWifi`：[wifi.getConnectedWifi(OBJECT)](https://doc.quickapp.cn/features/system/wifi.html#wifigetconnectedwifiobject) 获取已连接中的 Wi-Fi 信息
+#### 蓝牙 bluetooth
+* `asyncBluetoothOpenAdapter`：[bluetooth.openAdapter(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothopenadapterobject) 初始化蓝牙模块
+* `asyncBluetoothCloseAdapter`：[bluetooth.closeAdapter(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothcloseadapterobject) 关闭蓝牙模块
+* `asyncBluetoothGetAdapterState`：[bluetooth.getAdapterState(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetadapterstateobject) 获取本机蓝牙适配器状态
+* `asyncBluetoothStartDevicesDiscovery`：[bluetooth.startDevicesDiscovery(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothstartdevicesdiscoveryobject) 开始搜寻附近的蓝牙外围设备
+* `asyncBluetoothStopDevicesDiscovery`：[bluetooth.getAdapterState(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothstopdevicesdiscoveryobject) 停止搜寻附近的蓝牙外围设备
+* `asyncBluetoothGetDevices`：[bluetooth.getDevices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothstopdevicesdiscoveryobject) 获取在蓝牙模块生效期间所有已发现的蓝牙设备
+* `asyncBluetoothGetConnectedDevices`：[bluetooth.getConnectedDevices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetconnecteddevicesobject) 根据 uuid 获取处于已连接状态的设备
+* `AsyncBluetoothCreateBLEConnection`：[bluetooth.createBLEConnection(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothcreatebleconnectionobject) 连接低功耗蓝牙设备
+* `AsyncBluetoothCloseBLEConnection`：[bluetooth.closeBLEConnection (OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothclosebleconnection-object) 断开与低功耗蓝牙设备的连接
+* `AsyncBluetoothGetBLEDeviceServices`：[bluetooth.getBLEDeviceServices(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledeviceservicesobject) 获取蓝牙设备所有服务(service)
+* `AsyncBluetoothGetBLEDeviceCharacteristics`：[bluetooth.getBLEDeviceCharacteristics(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothgetbledevicecharacteristicsobject) 获取蓝牙设备某个服务中所有特征值(characteristic)
+* `AsyncBluetoothReadBLECharacteristicValue`：[bluetooth.readBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothreadblecharacteristicvalueobject) 读取低功耗蓝牙设备的特征值的二进制数据值
+* `AsyncBluetoothWriteBLECharacteristicValue`：[bluetooth.writeBLECharacteristicValue(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothwriteblecharacteristicvalueobject) 向低功耗蓝牙设备特征值中写入二进制数据
+* `AsyncBluetootNotifyBLECharacteristicValueChange`：[bluetooth.notifyBLECharacteristicValueChange(OBJECT)](https://doc.quickapp.cn/features/system/bluetooth.html#bluetoothnotifyblecharacteristicvaluechangeobject) 启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值
+#### 闹钟 alarm
+* `asyncAlarmSetAlarm`：[alarm.setAlarm (OBJECT)](https://doc.quickapp.cn/features/system/alarm.html#alarmsetalarm-object) 设置闹钟，每次添加弹出提示框，同意后调用接口添加
+* `asyncAlarmIsAvailable`：[alarm.isAvailable(OBJECT)](https://doc.quickapp.cn/features/system/alarm.html#alarmisavailableobject-1120) 获取闹钟能力可用状态
+#### 解压缩 zip
+* `asyncZipDecompress`：[zip.decompress(OBJECT)](https://doc.quickapp.cn/features/system/zip.html#zipdecompressobject) 解压文件
+#### 锁屏 keyguard
+* `asyncKeyguardGetKeyguardLockedStatus`：[keyguard.getKeyguardLockedStatus(OBJECT)](https://doc.quickapp.cn/features/system/keyguard.html#keyguardgetkeyguardlockedstatusobject) 获取快应用当前环境是否为锁屏状态

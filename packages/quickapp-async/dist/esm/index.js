@@ -1,3 +1,23 @@
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+
 // src/device.ts
 import device from "@system.device";
 var asyncDeviceGetInfo = () => {
@@ -103,77 +123,59 @@ var asyncNetworkGetSimOperators = () => {
 
 // src/prompt.ts
 import prompt from "@system.prompt";
-var asyncshowDialog = ({ title, message, buttons, autocancel }) => {
+var asyncPromptShowDialog = (args) => {
   return new Promise((resolve, reject) => {
-    prompt.showDialog({
-      title,
-      message,
-      buttons,
-      autocancel,
+    prompt.showDialog(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       cancel: reject
-    });
+    }));
   });
 };
-var asyncShowContextMenu = ({ itemList, itemColor }) => {
+var asyncPromptShowContextMenu = (args) => {
   return new Promise((resolve, reject) => {
-    prompt.showContextMenu({
-      itemList,
-      itemColor,
+    prompt.showContextMenu(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       cancel: reject
-    });
+    }));
   });
 };
 
 // src/request.ts
 import request from "@system.request";
-var asyncRequestUpload = ({ url, header, method, files, data }) => {
+var asyncRequestUpload = (args) => {
   return new Promise((resolve, reject) => {
-    request.upload({
-      url,
-      header,
-      method,
-      files,
-      data,
+    request.upload(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncRequestDownload = ({ url, header, description, filename }) => {
+var asyncRequestDownload = (args) => {
   return new Promise((resolve, reject) => {
-    request.download({
-      url,
-      header,
-      description,
-      filename,
+    request.download(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncRequestOnDownloadComplete = ({ token }) => {
+var asyncRequestOnDownloadComplete = (args) => {
   return new Promise((resolve, reject) => {
-    request.onDownloadComplete({
-      token,
+    request.onDownloadComplete(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 
 // src/share.ts
 import share from "@system.share";
-var asyncShare = ({ type, data }) => {
+var asyncShareShare = (args) => {
   return new Promise((resolve, reject) => {
-    share.share({
-      type,
-      data,
+    share.share(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject,
       cancel: reject
-    });
+    }));
   });
 };
 
@@ -199,23 +201,20 @@ var asyncShortcuInstall = ({ message }) => {
 
 // src/storage.ts
 import storage from "@system.storage";
-var asyncStorageGet = ({ key }) => {
+var asyncStorageGet = (args) => {
   return new Promise((resolve, reject) => {
-    storage.get({
-      key,
+    storage.get(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncStorageSet = ({ key, value }) => {
+var asyncStorageSet = (args) => {
   return new Promise((resolve, reject) => {
-    storage.set({
-      key,
-      value,
+    storage.set(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 var asyncStorageClear = () => {
@@ -226,38 +225,31 @@ var asyncStorageClear = () => {
     });
   });
 };
-var asyncStorageDelete = ({ key }) => {
+var asyncStorageDelete = (args) => {
   return new Promise((resolve, reject) => {
-    storage.delete({
-      key,
+    storage.delete(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncStorageKey = ({ index }) => {
+var asyncStorageKey = (args) => {
   return new Promise((resolve, reject) => {
-    storage.key({
-      index,
+    storage.key(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 
 // src/webview.ts
 import webview from "@system.webview";
-var asyncWebviewSetCookie = ({ domain, name, value, maxAge, path }) => {
+var asyncWebviewSetCookie = (args) => {
   return new Promise((resolve, reject) => {
-    webview.setCookie({
-      domain,
-      name,
-      value,
-      maxAge,
-      path,
+    webview.setCookie(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 export {
@@ -273,18 +265,18 @@ export {
   asyncDeviceGetUserId,
   asyncNetworkGetSimOperators,
   asyncNetworkGetType,
+  asyncPromptShowContextMenu,
+  asyncPromptShowDialog,
   asyncRequestDownload,
   asyncRequestOnDownloadComplete,
   asyncRequestUpload,
-  asyncShare,
+  asyncShareShare,
   asyncShortcuInstall,
   asyncShortcutHasInstalled,
-  asyncShowContextMenu,
   asyncStorageClear,
   asyncStorageDelete,
   asyncStorageGet,
   asyncStorageKey,
   asyncStorageSet,
-  asyncWebviewSetCookie,
-  asyncshowDialog
+  asyncWebviewSetCookie
 };

@@ -1,10 +1,27 @@
 "use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -42,20 +59,20 @@ __export(src_exports, {
   asyncDeviceGetUserId: () => asyncDeviceGetUserId,
   asyncNetworkGetSimOperators: () => asyncNetworkGetSimOperators,
   asyncNetworkGetType: () => asyncNetworkGetType,
+  asyncPromptShowContextMenu: () => asyncPromptShowContextMenu,
+  asyncPromptShowDialog: () => asyncPromptShowDialog,
   asyncRequestDownload: () => asyncRequestDownload,
   asyncRequestOnDownloadComplete: () => asyncRequestOnDownloadComplete,
   asyncRequestUpload: () => asyncRequestUpload,
-  asyncShare: () => asyncShare,
+  asyncShareShare: () => asyncShareShare,
   asyncShortcuInstall: () => asyncShortcuInstall,
   asyncShortcutHasInstalled: () => asyncShortcutHasInstalled,
-  asyncShowContextMenu: () => asyncShowContextMenu,
   asyncStorageClear: () => asyncStorageClear,
   asyncStorageDelete: () => asyncStorageDelete,
   asyncStorageGet: () => asyncStorageGet,
   asyncStorageKey: () => asyncStorageKey,
   asyncStorageSet: () => asyncStorageSet,
-  asyncWebviewSetCookie: () => asyncWebviewSetCookie,
-  asyncshowDialog: () => asyncshowDialog
+  asyncWebviewSetCookie: () => asyncWebviewSetCookie
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -164,77 +181,59 @@ var asyncNetworkGetSimOperators = () => {
 
 // src/prompt.ts
 var import_system3 = __toESM(require("@system.prompt"));
-var asyncshowDialog = ({ title, message, buttons, autocancel }) => {
+var asyncPromptShowDialog = (args) => {
   return new Promise((resolve, reject) => {
-    import_system3.default.showDialog({
-      title,
-      message,
-      buttons,
-      autocancel,
+    import_system3.default.showDialog(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       cancel: reject
-    });
+    }));
   });
 };
-var asyncShowContextMenu = ({ itemList, itemColor }) => {
+var asyncPromptShowContextMenu = (args) => {
   return new Promise((resolve, reject) => {
-    import_system3.default.showContextMenu({
-      itemList,
-      itemColor,
+    import_system3.default.showContextMenu(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       cancel: reject
-    });
+    }));
   });
 };
 
 // src/request.ts
 var import_system4 = __toESM(require("@system.request"));
-var asyncRequestUpload = ({ url, header, method, files, data }) => {
+var asyncRequestUpload = (args) => {
   return new Promise((resolve, reject) => {
-    import_system4.default.upload({
-      url,
-      header,
-      method,
-      files,
-      data,
+    import_system4.default.upload(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncRequestDownload = ({ url, header, description, filename }) => {
+var asyncRequestDownload = (args) => {
   return new Promise((resolve, reject) => {
-    import_system4.default.download({
-      url,
-      header,
-      description,
-      filename,
+    import_system4.default.download(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncRequestOnDownloadComplete = ({ token }) => {
+var asyncRequestOnDownloadComplete = (args) => {
   return new Promise((resolve, reject) => {
-    import_system4.default.onDownloadComplete({
-      token,
+    import_system4.default.onDownloadComplete(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 
 // src/share.ts
 var import_system5 = __toESM(require("@system.share"));
-var asyncShare = ({ type, data }) => {
+var asyncShareShare = (args) => {
   return new Promise((resolve, reject) => {
-    import_system5.default.share({
-      type,
-      data,
+    import_system5.default.share(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject,
       cancel: reject
-    });
+    }));
   });
 };
 
@@ -260,23 +259,20 @@ var asyncShortcuInstall = ({ message }) => {
 
 // src/storage.ts
 var import_system7 = __toESM(require("@system.storage"));
-var asyncStorageGet = ({ key }) => {
+var asyncStorageGet = (args) => {
   return new Promise((resolve, reject) => {
-    import_system7.default.get({
-      key,
+    import_system7.default.get(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncStorageSet = ({ key, value }) => {
+var asyncStorageSet = (args) => {
   return new Promise((resolve, reject) => {
-    import_system7.default.set({
-      key,
-      value,
+    import_system7.default.set(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 var asyncStorageClear = () => {
@@ -287,38 +283,31 @@ var asyncStorageClear = () => {
     });
   });
 };
-var asyncStorageDelete = ({ key }) => {
+var asyncStorageDelete = (args) => {
   return new Promise((resolve, reject) => {
-    import_system7.default.delete({
-      key,
+    import_system7.default.delete(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
-var asyncStorageKey = ({ index }) => {
+var asyncStorageKey = (args) => {
   return new Promise((resolve, reject) => {
-    import_system7.default.key({
-      index,
+    import_system7.default.key(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 
 // src/webview.ts
 var import_system8 = __toESM(require("@system.webview"));
-var asyncWebviewSetCookie = ({ domain, name, value, maxAge, path }) => {
+var asyncWebviewSetCookie = (args) => {
   return new Promise((resolve, reject) => {
-    import_system8.default.setCookie({
-      domain,
-      name,
-      value,
-      maxAge,
-      path,
+    import_system8.default.setCookie(__spreadProps(__spreadValues({}, args), {
       success: resolve,
       fail: reject
-    });
+    }));
   });
 };
 // Annotate the CommonJS export names for ESM import in node:
@@ -335,18 +324,18 @@ var asyncWebviewSetCookie = ({ domain, name, value, maxAge, path }) => {
   asyncDeviceGetUserId,
   asyncNetworkGetSimOperators,
   asyncNetworkGetType,
+  asyncPromptShowContextMenu,
+  asyncPromptShowDialog,
   asyncRequestDownload,
   asyncRequestOnDownloadComplete,
   asyncRequestUpload,
-  asyncShare,
+  asyncShareShare,
   asyncShortcuInstall,
   asyncShortcutHasInstalled,
-  asyncShowContextMenu,
   asyncStorageClear,
   asyncStorageDelete,
   asyncStorageGet,
   asyncStorageKey,
   asyncStorageSet,
-  asyncWebviewSetCookie,
-  asyncshowDialog
+  asyncWebviewSetCookie
 });
