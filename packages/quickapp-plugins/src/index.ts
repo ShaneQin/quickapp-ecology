@@ -15,7 +15,7 @@ export default class QuickAppPlugins {
   }
 }
 
-export const asyncStorageGetS = async (key: string, dVal = '') => {
+export const asyncStorageGetS = async (key: string, dVal: any = '') => {
   const data = await asyncStorageGet({ key });
   if (data) {
     try {
