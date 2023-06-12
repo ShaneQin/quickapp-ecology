@@ -338,7 +338,7 @@ interface AsyncNetworkGetSimOperatorsRes {
 
 export type AsyncNetworkGetSimOperators = () => Promise<AsyncNetworkGetSimOperatorsRes>;
 
-export interface AsyncDeviceGetInfoRes {
+export interface IDeviceGetInfoRes {
   brand: string;
   manufacturer: string;
   model: string;
@@ -363,7 +363,7 @@ export interface AsyncDeviceGetInfoRes {
   screenRefreshRate: number;
 }
 
-export type AsyncDeviceGetInfo = () => Promise<AsyncDeviceGetInfoRes>;
+export type AsyncDeviceGetInfo = () => Promise<IDeviceGetInfoRes>;
 
 type GetIdType = 'device' | 'mac' | 'user' | 'advertising';
 
