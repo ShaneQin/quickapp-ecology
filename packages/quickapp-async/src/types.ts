@@ -150,33 +150,33 @@ export type AsyncFileGet = (args: { uri: string; recursive?: boolean }) => Promi
 
 export type AsyncFileDelete = (args: { uri: string }) => Promise<void>;
 
-interface AsyncFileWriteTextArgs {
+interface IFileWriteTextArgs {
   uri: string;
   text: string;
   encoding?: string;
   append?: boolean;
 }
 
-export type AsyncFileWriteText = (args: AsyncFileWriteTextArgs) => Promise<void>;
+export type AsyncFileWriteText = (args: IFileWriteTextArgs) => Promise<void>;
 
-interface AsyncFileWriteArrayBufferArgs {
+interface IFileWriteArrayBufferArgs {
   uri: string;
   buffer: Uint8Array[];
   position?: number;
   append?: boolean;
 }
 
-export type AsyncFileWriteArrayBuffer = (args: AsyncFileWriteArrayBufferArgs) => Promise<void>;
+export type AsyncFileWriteArrayBuffer = (args: IFileWriteArrayBufferArgs) => Promise<void>;
 
 export type AsyncFileReadText = (args: { uri: string; encoding?: string }) => Promise<{ text: string }>;
 
-interface AsyncFileReadArrayBufferArgs {
+interface IFileReadArrayBufferArgs {
   uri: string;
   position?: number;
   length?: number;
 }
 
-export type AsyncFileReadArrayBuffer = (args: AsyncFileReadArrayBufferArgs) => Promise<{ buffer: Uint8Array }>;
+export type AsyncFileReadArrayBuffer = (args: IFileReadArrayBufferArgs) => Promise<{ buffer: Uint8Array }>;
 
 export type AsyncFileAccess = (args: { uri: string }) => Promise<void>;
 
@@ -184,16 +184,16 @@ export type AsyncFileMkdir = (args: { uri: string; recursive?: boolean }) => Pro
 
 export type AsyncFileRmdir = (args: { uri: string; recursive?: boolean }) => Promise<void>;
 
-interface AsyncExchangeGetArgs {
+interface IExchangeGetArgs {
   key: string;
   package?: string;
   sign?: string;
   scope?: string;
 }
 
-export type AsyncExchangeGet = (args: AsyncExchangeGetArgs) => Promise<{ value: string }>;
+export type AsyncExchangeGet = (args: IExchangeGetArgs) => Promise<{ value: string }>;
 
-interface AsyncExchangeSetArgs {
+interface IExchangeSetArgs {
   key: string;
   value: string;
   scope?: string;
@@ -201,26 +201,26 @@ interface AsyncExchangeSetArgs {
   sign?: string;
 }
 
-export type AsyncExchangeSet = (args: AsyncExchangeSetArgs) => Promise<void>;
+export type AsyncExchangeSet = (args: IExchangeSetArgs) => Promise<void>;
 
-interface AsyncExchangeRemoveArgs {
+interface IExchangeRemoveArgs {
   key: string;
   package: string;
   sign: string;
 }
 
-export type AsyncExchangeRemove = (args: AsyncExchangeRemoveArgs) => Promise<void>;
+export type AsyncExchangeRemove = (args: IExchangeRemoveArgs) => Promise<void>;
 
 export type AsyncExchangeClear = () => Promise<void>;
 
-interface AsyncExchangeGrantPermissionArgs {
+interface IExchangeGrantPermissionArgs {
   package: string;
   sign: string;
   key?: string;
   writable?: boolean;
 }
 
-export type AsyncExchangeGrantPermission = (args: AsyncExchangeGrantPermissionArgs) => Promise<void>;
+export type AsyncExchangeGrantPermission = (args: IExchangeGrantPermissionArgs) => Promise<void>;
 
 export type AsyncExchangeRevokePermission = (args: { package: string; key?: string }) => Promise<void>;
 
@@ -230,16 +230,16 @@ export type AsyncClipboardSet = (args: { text: string }) => Promise<void>;
 
 export type AsyncClipboardGet = () => Promise<{ text: string }>;
 
-interface AsyncGeolocationGetLocationRes {
+interface IGeolocationGetLocationRes {
   longitude: number;
   latitude: number;
   accuracy: number;
   time: number;
 }
 
-export type AsyncGeolocationGetLocation = (args: { timeout?: number; coorType?: string }) => Promise<AsyncGeolocationGetLocationRes>;
+export type AsyncGeolocationGetLocation = (args: { timeout?: number; coorType?: string }) => Promise<IGeolocationGetLocationRes>;
 
-interface AsyncGeolocationOpenLocationArgs {
+interface IGeolocationOpenLocationArgs {
   latitude: number;
   longitude: number;
   coordType?: string;
@@ -248,15 +248,15 @@ interface AsyncGeolocationOpenLocationArgs {
   address?: string;
 }
 
-export type AsyncGeolocationOpenLocation = (args: AsyncGeolocationOpenLocationArgs) => Promise<void>;
+export type AsyncGeolocationOpenLocation = (args: IGeolocationOpenLocationArgs) => Promise<void>;
 
-interface AsyncGeolocationChooseLocationArgs {
+interface IGeolocationChooseLocationArgs {
   latitude?: number;
   longitude?: number;
   coordType?: string;
 }
 
-interface AsyncGeolocationChooseLocationRes {
+interface IGeolocationChooseLocationRes {
   name: string;
   address: string;
   coordType: string;
@@ -264,15 +264,13 @@ interface AsyncGeolocationChooseLocationRes {
   longitude: number;
 }
 
-export type AsyncGeolocationChooseLocation = (args: AsyncGeolocationChooseLocationArgs) => Promise<AsyncGeolocationChooseLocationRes>;
+export type AsyncGeolocationChooseLocation = (args: IGeolocationChooseLocationArgs) => Promise<IGeolocationChooseLocationRes>;
 
-export type AsyncGeolocationGetLocationType = () => Promise<{
-  types: string[];
-}>;
+export type AsyncGeolocationGetLocationType = () => Promise<{ types: string[] }>;
 
 export type AsyncGeolocationGeocodeQuery = (args: { city: string; address: string }) => Promise<{ longitude: number; latitude: number }>;
 
-interface AsyncGeolocationReverseGeocodeQueryArgs {
+interface IGeolocationReverseGeocodeQueryArgs {
   longitude: number;
   latitude: number;
   coordType?: string;
@@ -288,7 +286,7 @@ interface IGeolocationReverseGeocodeQueryPoiInfo {
   phone: string;
 }
 
-interface AsyncGeolocationReverseGeocodeQueryRes {
+interface IGeolocationReverseGeocodeQueryRes {
   countryName: string;
   province: string;
   city: string;
@@ -298,13 +296,13 @@ interface AsyncGeolocationReverseGeocodeQueryRes {
   poiInfoList: IGeolocationReverseGeocodeQueryPoiInfo[];
 }
 
-export type AsyncGeolocationReverseGeocodeQuery = (args: AsyncGeolocationReverseGeocodeQueryArgs) => Promise<AsyncGeolocationReverseGeocodeQueryRes>;
+export type AsyncGeolocationReverseGeocodeQuery = (args: IGeolocationReverseGeocodeQueryArgs) => Promise<IGeolocationReverseGeocodeQueryRes>;
 
 export type AsyncShortcutHasInstalled = () => Promise<boolean>;
 
 export type AsyncShortcuInstall = (args: { message?: string }) => Promise<void>;
 
-interface AsyncCalendarInsertArgs {
+interface ICalendarInsertArgs {
   title: string;
   startDate: number;
   endDate: number;
@@ -316,14 +314,14 @@ interface AsyncCalendarInsertArgs {
   organizer?: string;
 }
 
-export type AsyncCalendarInsert = (args: AsyncCalendarInsertArgs) => Promise<any>;
+export type AsyncCalendarInsert = (args: ICalendarInsertArgs) => Promise<any>;
 
-export interface AsyncNetworkGetTypeRes {
+export interface INetworkGetTypeRes {
   metered: boolean;
   type: string;
 }
 
-export type AsyncNetworkGetType = () => Promise<AsyncNetworkGetTypeRes>;
+export type AsyncNetworkGetType = () => Promise<INetworkGetTypeRes>;
 
 interface SimOperators {
   operator: string;
@@ -331,12 +329,12 @@ interface SimOperators {
   isDefaultDataOperator: boolean;
 }
 
-interface AsyncNetworkGetSimOperatorsRes {
+interface INetworkGetSimOperatorsRes {
   operators: SimOperators[];
   size: string;
 }
 
-export type AsyncNetworkGetSimOperators = () => Promise<AsyncNetworkGetSimOperatorsRes>;
+export type AsyncNetworkGetSimOperators = () => Promise<INetworkGetSimOperatorsRes>;
 
 export interface IDeviceGetInfoRes {
   brand: string;
@@ -365,34 +363,28 @@ export interface IDeviceGetInfoRes {
 
 export type AsyncDeviceGetInfo = () => Promise<IDeviceGetInfoRes>;
 
-type GetIdType = 'device' | 'mac' | 'user' | 'advertising';
+type TDeviceGetIdType = 'device' | 'mac' | 'user' | 'advertising';
 
-interface AsyncDeviceGetIdRes {
+interface IDeviceGetIdRes {
   device?: string;
   mac?: string;
   user?: string;
   advertising?: string;
 }
 
-export type AsyncDeviceGetId = (args: { type: GetIdType[] }) => Promise<AsyncDeviceGetIdRes>;
+export type AsyncDeviceGetId = (args: { type: TDeviceGetIdType[] }) => Promise<IDeviceGetIdRes>;
 
 export type AsyncDeviceGetDeviceId = () => Promise<{ deviceId: string }>;
 
 export type AsyncDeviceGetUserId = () => Promise<{ userId: string }>;
 
-export type AsyncDeviceGetAdvertisingId = () => Promise<{
-  advertisingId: string;
-}>;
+export type AsyncDeviceGetAdvertisingId = () => Promise<{ advertisingId: string }>;
 
 export type AsyncDeviceGetSerial = () => Promise<{ serial: string }>;
 
-export type AsyncDeviceGetTotalStorage = () => Promise<{
-  totalStorage: number;
-}>;
+export type AsyncDeviceGetTotalStorage = () => Promise<{ totalStorage: number }>;
 
-export type AsyncDeviceGetAvailableStorage = () => Promise<{
-  availableStorage: number;
-}>;
+export type AsyncDeviceGetAvailableStorage = () => Promise<{ availableStorage: number }>;
 
 export type AsyncDeviceGetCpuInfo = () => Promise<{ cpuInfo: string }>;
 
@@ -430,7 +422,7 @@ export type AsyncPkgGetInfo = (args: { package: string }) => Promise<{ versionCo
 
 export type AsyncPkgGetSignatureDigests = (args: { package: string }) => Promise<{ signatureDigests: any[] }>;
 
-interface AsyncRecordStartArgs {
+interface IRecordStartArgs {
   duration?: number;
   sampleRate?: number;
   numberOfChannels?: number;
@@ -438,7 +430,7 @@ interface AsyncRecordStartArgs {
   format?: string;
 }
 
-export type AsyncRecordStart = (args?: AsyncRecordStartArgs) => Promise<{ uri: string }>;
+export type AsyncRecordStart = (args?: IRecordStartArgs) => Promise<{ uri: string }>;
 
 interface IContactItem {
   displayName: string;
@@ -453,24 +445,24 @@ export type AsyncSmsSend = (args: { address: string; content: string }) => Promi
 
 export type AsyncSmsReadSafely = (args: { timeout?: number }) => Promise<{ message: string }>;
 
-interface AsyncWifiConnectArgs {
+interface IWifiConnectArgs {
   SSID: string;
   BSSID: string;
   password?: string;
 }
 
-export type AsyncWifiConnect = (args: AsyncWifiConnectArgs) => Promise<void>;
+export type AsyncWifiConnect = (args: IWifiConnectArgs) => Promise<void>;
 
 export type AsyncWifiScan = () => Promise<void>;
 
-interface AsyncWifiGetConnectedWifiRes {
+interface IWifiGetConnectedWifiRes {
   SSID: string;
   BSSID: string;
   secure: boolean;
   signalStrength: number;
 }
 
-export type AsyncWifiGetConnectedWifi = () => Promise<AsyncWifiGetConnectedWifiRes>;
+export type AsyncWifiGetConnectedWifi = () => Promise<IWifiGetConnectedWifiRes>;
 
 export type AsyncBluetoothOpenAdapter = (args?: { operateAdapter?: boolean }) => Promise<void>;
 
@@ -481,13 +473,13 @@ export type AsyncBluetoothGetAdapterState = () => Promise<{
   discovering: boolean;
 }>;
 
-interface AsyncBluetoothStartDevicesDiscoveryArgs {
+interface IBluetoothStartDevicesDiscoveryArgs {
   service?: string[];
   allowDuplicatesKey?: boolean;
   interval?: number;
 }
 
-export type AsyncBluetoothStartDevicesDiscovery = (args?: AsyncBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
+export type AsyncBluetoothStartDevicesDiscovery = (args?: IBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
 
 export type AsyncBluetoothStopDevicesDiscovery = () => Promise<void>;
 
@@ -524,32 +516,32 @@ interface IBLEDeviceCharacteristicsItem {
   };
 }
 
-interface AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+interface IBluetoothGetBLEDeviceCharacteristicsArgs {
   deviceId: string;
   serviceId: string;
 }
 
-export type AsyncBluetoothGetBLEDeviceCharacteristics = (args: AsyncBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{ characteristics: IBLEDeviceCharacteristicsItem[] }>;
+export type AsyncBluetoothGetBLEDeviceCharacteristics = (args: IBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{ characteristics: IBLEDeviceCharacteristicsItem[] }>;
 
-interface AsyncBluetoothReadBLECharacteristicValueArgs extends AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+interface IBluetoothReadBLECharacteristicValueArgs extends IBluetoothGetBLEDeviceCharacteristicsArgs {
   characteristicId: string;
 }
 
-export type AsyncBluetoothReadBLECharacteristicValue = (args: AsyncBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
+export type AsyncBluetoothReadBLECharacteristicValue = (args: IBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
 
-interface AsyncBluetoothWriteBLECharacteristicValueArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+interface IBluetoothWriteBLECharacteristicValueArgs extends IBluetoothReadBLECharacteristicValueArgs {
   value: ArrayBuffer;
 }
 
-export type AsyncBluetoothWriteBLECharacteristicValue = (args: AsyncBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
+export type AsyncBluetoothWriteBLECharacteristicValue = (args: IBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
 
-interface AsyncBluetootNotifyBLECharacteristicValueChangeArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+interface IBluetootNotifyBLECharacteristicValueChangeArgs extends IBluetoothReadBLECharacteristicValueArgs {
   state: boolean;
 }
 
-export type AsyncBluetootNotifyBLECharacteristicValueChange = (args: AsyncBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
+export type AsyncBluetootNotifyBLECharacteristicValueChange = (args: IBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
 
-interface AsyncAlarmSetAlarmArgs {
+interface IAlarmSetAlarmArgs {
   hour: number;
   minute: number;
   message?: string;
@@ -558,12 +550,10 @@ interface AsyncAlarmSetAlarmArgs {
   ringtone: string;
 }
 
-export type AsyncAlarmSetAlarm = (args: AsyncAlarmSetAlarmArgs) => Promise<void>;
+export type AsyncAlarmSetAlarm = (args: IAlarmSetAlarmArgs) => Promise<void>;
 
 export type AsyncAlarmIsAvailable = () => Promise<{ isAvailable: boolean }>;
 
 export type AsyncZipDecompress = (args: { srcUri: string; dstUri: string }) => Promise<void>;
 
-export type AsyncKeyguardGetKeyguardLockedStatus = () => Promise<{
-  isKeyguardLocked: boolean;
-}>;
+export type AsyncKeyguardGetKeyguardLockedStatus = () => Promise<{ isKeyguardLocked: boolean }>;

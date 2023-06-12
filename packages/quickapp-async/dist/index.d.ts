@@ -146,32 +146,32 @@ type AsyncFileGet = (args: {
 type AsyncFileDelete = (args: {
     uri: string;
 }) => Promise<void>;
-interface AsyncFileWriteTextArgs {
+interface IFileWriteTextArgs {
     uri: string;
     text: string;
     encoding?: string;
     append?: boolean;
 }
-type AsyncFileWriteText = (args: AsyncFileWriteTextArgs) => Promise<void>;
-interface AsyncFileWriteArrayBufferArgs {
+type AsyncFileWriteText = (args: IFileWriteTextArgs) => Promise<void>;
+interface IFileWriteArrayBufferArgs {
     uri: string;
     buffer: Uint8Array[];
     position?: number;
     append?: boolean;
 }
-type AsyncFileWriteArrayBuffer = (args: AsyncFileWriteArrayBufferArgs) => Promise<void>;
+type AsyncFileWriteArrayBuffer = (args: IFileWriteArrayBufferArgs) => Promise<void>;
 type AsyncFileReadText = (args: {
     uri: string;
     encoding?: string;
 }) => Promise<{
     text: string;
 }>;
-interface AsyncFileReadArrayBufferArgs {
+interface IFileReadArrayBufferArgs {
     uri: string;
     position?: number;
     length?: number;
 }
-type AsyncFileReadArrayBuffer = (args: AsyncFileReadArrayBufferArgs) => Promise<{
+type AsyncFileReadArrayBuffer = (args: IFileReadArrayBufferArgs) => Promise<{
     buffer: Uint8Array;
 }>;
 type AsyncFileAccess = (args: {
@@ -185,37 +185,37 @@ type AsyncFileRmdir = (args: {
     uri: string;
     recursive?: boolean;
 }) => Promise<void>;
-interface AsyncExchangeGetArgs {
+interface IExchangeGetArgs {
     key: string;
     package?: string;
     sign?: string;
     scope?: string;
 }
-type AsyncExchangeGet = (args: AsyncExchangeGetArgs) => Promise<{
+type AsyncExchangeGet = (args: IExchangeGetArgs) => Promise<{
     value: string;
 }>;
-interface AsyncExchangeSetArgs {
+interface IExchangeSetArgs {
     key: string;
     value: string;
     scope?: string;
     package?: string;
     sign?: string;
 }
-type AsyncExchangeSet = (args: AsyncExchangeSetArgs) => Promise<void>;
-interface AsyncExchangeRemoveArgs {
+type AsyncExchangeSet = (args: IExchangeSetArgs) => Promise<void>;
+interface IExchangeRemoveArgs {
     key: string;
     package: string;
     sign: string;
 }
-type AsyncExchangeRemove = (args: AsyncExchangeRemoveArgs) => Promise<void>;
+type AsyncExchangeRemove = (args: IExchangeRemoveArgs) => Promise<void>;
 type AsyncExchangeClear = () => Promise<void>;
-interface AsyncExchangeGrantPermissionArgs {
+interface IExchangeGrantPermissionArgs {
     package: string;
     sign: string;
     key?: string;
     writable?: boolean;
 }
-type AsyncExchangeGrantPermission = (args: AsyncExchangeGrantPermissionArgs) => Promise<void>;
+type AsyncExchangeGrantPermission = (args: IExchangeGrantPermissionArgs) => Promise<void>;
 type AsyncExchangeRevokePermission = (args: {
     package: string;
     key?: string;
@@ -229,7 +229,7 @@ type AsyncClipboardSet = (args: {
 type AsyncClipboardGet = () => Promise<{
     text: string;
 }>;
-interface AsyncGeolocationGetLocationRes {
+interface IGeolocationGetLocationRes {
     longitude: number;
     latitude: number;
     accuracy: number;
@@ -238,8 +238,8 @@ interface AsyncGeolocationGetLocationRes {
 type AsyncGeolocationGetLocation = (args: {
     timeout?: number;
     coorType?: string;
-}) => Promise<AsyncGeolocationGetLocationRes>;
-interface AsyncGeolocationOpenLocationArgs {
+}) => Promise<IGeolocationGetLocationRes>;
+interface IGeolocationOpenLocationArgs {
     latitude: number;
     longitude: number;
     coordType?: string;
@@ -247,20 +247,20 @@ interface AsyncGeolocationOpenLocationArgs {
     name?: string;
     address?: string;
 }
-type AsyncGeolocationOpenLocation = (args: AsyncGeolocationOpenLocationArgs) => Promise<void>;
-interface AsyncGeolocationChooseLocationArgs {
+type AsyncGeolocationOpenLocation = (args: IGeolocationOpenLocationArgs) => Promise<void>;
+interface IGeolocationChooseLocationArgs {
     latitude?: number;
     longitude?: number;
     coordType?: string;
 }
-interface AsyncGeolocationChooseLocationRes {
+interface IGeolocationChooseLocationRes {
     name: string;
     address: string;
     coordType: string;
     latitude: number;
     longitude: number;
 }
-type AsyncGeolocationChooseLocation = (args: AsyncGeolocationChooseLocationArgs) => Promise<AsyncGeolocationChooseLocationRes>;
+type AsyncGeolocationChooseLocation = (args: IGeolocationChooseLocationArgs) => Promise<IGeolocationChooseLocationRes>;
 type AsyncGeolocationGetLocationType = () => Promise<{
     types: string[];
 }>;
@@ -271,7 +271,7 @@ type AsyncGeolocationGeocodeQuery = (args: {
     longitude: number;
     latitude: number;
 }>;
-interface AsyncGeolocationReverseGeocodeQueryArgs {
+interface IGeolocationReverseGeocodeQueryArgs {
     longitude: number;
     latitude: number;
     coordType?: string;
@@ -285,7 +285,7 @@ interface IGeolocationReverseGeocodeQueryPoiInfo {
     address: string;
     phone: string;
 }
-interface AsyncGeolocationReverseGeocodeQueryRes {
+interface IGeolocationReverseGeocodeQueryRes {
     countryName: string;
     province: string;
     city: string;
@@ -294,12 +294,12 @@ interface AsyncGeolocationReverseGeocodeQueryRes {
     address: string;
     poiInfoList: IGeolocationReverseGeocodeQueryPoiInfo[];
 }
-type AsyncGeolocationReverseGeocodeQuery = (args: AsyncGeolocationReverseGeocodeQueryArgs) => Promise<AsyncGeolocationReverseGeocodeQueryRes>;
+type AsyncGeolocationReverseGeocodeQuery = (args: IGeolocationReverseGeocodeQueryArgs) => Promise<IGeolocationReverseGeocodeQueryRes>;
 type AsyncShortcutHasInstalled = () => Promise<boolean>;
 type AsyncShortcuInstall = (args: {
     message?: string;
 }) => Promise<void>;
-interface AsyncCalendarInsertArgs {
+interface ICalendarInsertArgs {
     title: string;
     startDate: number;
     endDate: number;
@@ -310,22 +310,22 @@ interface AsyncCalendarInsertArgs {
     remindMinutes?: number[];
     organizer?: string;
 }
-type AsyncCalendarInsert = (args: AsyncCalendarInsertArgs) => Promise<any>;
-interface AsyncNetworkGetTypeRes {
+type AsyncCalendarInsert = (args: ICalendarInsertArgs) => Promise<any>;
+interface INetworkGetTypeRes {
     metered: boolean;
     type: string;
 }
-type AsyncNetworkGetType = () => Promise<AsyncNetworkGetTypeRes>;
+type AsyncNetworkGetType = () => Promise<INetworkGetTypeRes>;
 interface SimOperators {
     operator: string;
     slotIndex: number;
     isDefaultDataOperator: boolean;
 }
-interface AsyncNetworkGetSimOperatorsRes {
+interface INetworkGetSimOperatorsRes {
     operators: SimOperators[];
     size: string;
 }
-type AsyncNetworkGetSimOperators = () => Promise<AsyncNetworkGetSimOperatorsRes>;
+type AsyncNetworkGetSimOperators = () => Promise<INetworkGetSimOperatorsRes>;
 interface IDeviceGetInfoRes {
     brand: string;
     manufacturer: string;
@@ -351,16 +351,16 @@ interface IDeviceGetInfoRes {
     screenRefreshRate: number;
 }
 type AsyncDeviceGetInfo = () => Promise<IDeviceGetInfoRes>;
-type GetIdType = 'device' | 'mac' | 'user' | 'advertising';
-interface AsyncDeviceGetIdRes {
+type TDeviceGetIdType = 'device' | 'mac' | 'user' | 'advertising';
+interface IDeviceGetIdRes {
     device?: string;
     mac?: string;
     user?: string;
     advertising?: string;
 }
 type AsyncDeviceGetId = (args: {
-    type: GetIdType[];
-}) => Promise<AsyncDeviceGetIdRes>;
+    type: TDeviceGetIdType[];
+}) => Promise<IDeviceGetIdRes>;
 type AsyncDeviceGetDeviceId = () => Promise<{
     deviceId: string;
 }>;
@@ -435,14 +435,14 @@ type AsyncPkgGetSignatureDigests = (args: {
 }) => Promise<{
     signatureDigests: any[];
 }>;
-interface AsyncRecordStartArgs {
+interface IRecordStartArgs {
     duration?: number;
     sampleRate?: number;
     numberOfChannels?: number;
     encodeBitRate?: number;
     format?: string;
 }
-type AsyncRecordStart = (args?: AsyncRecordStartArgs) => Promise<{
+type AsyncRecordStart = (args?: IRecordStartArgs) => Promise<{
     uri: string;
 }>;
 interface IContactItem {
@@ -462,20 +462,20 @@ type AsyncSmsReadSafely = (args: {
 }) => Promise<{
     message: string;
 }>;
-interface AsyncWifiConnectArgs {
+interface IWifiConnectArgs {
     SSID: string;
     BSSID: string;
     password?: string;
 }
-type AsyncWifiConnect = (args: AsyncWifiConnectArgs) => Promise<void>;
+type AsyncWifiConnect = (args: IWifiConnectArgs) => Promise<void>;
 type AsyncWifiScan = () => Promise<void>;
-interface AsyncWifiGetConnectedWifiRes {
+interface IWifiGetConnectedWifiRes {
     SSID: string;
     BSSID: string;
     secure: boolean;
     signalStrength: number;
 }
-type AsyncWifiGetConnectedWifi = () => Promise<AsyncWifiGetConnectedWifiRes>;
+type AsyncWifiGetConnectedWifi = () => Promise<IWifiGetConnectedWifiRes>;
 type AsyncBluetoothOpenAdapter = (args?: {
     operateAdapter?: boolean;
 }) => Promise<void>;
@@ -486,12 +486,12 @@ type AsyncBluetoothGetAdapterState = () => Promise<{
     available: boolean;
     discovering: boolean;
 }>;
-interface AsyncBluetoothStartDevicesDiscoveryArgs {
+interface IBluetoothStartDevicesDiscoveryArgs {
     service?: string[];
     allowDuplicatesKey?: boolean;
     interval?: number;
 }
-type AsyncBluetoothStartDevicesDiscovery = (args?: AsyncBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
+type AsyncBluetoothStartDevicesDiscovery = (args?: IBluetoothStartDevicesDiscoveryArgs) => Promise<void>;
 type AsyncBluetoothStopDevicesDiscovery = () => Promise<void>;
 interface IBluetoothDeviceItem {
     name: string;
@@ -536,26 +536,26 @@ interface IBLEDeviceCharacteristicsItem {
         indicate: boolean;
     };
 }
-interface AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+interface IBluetoothGetBLEDeviceCharacteristicsArgs {
     deviceId: string;
     serviceId: string;
 }
-type AsyncBluetoothGetBLEDeviceCharacteristics = (args: AsyncBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{
+type AsyncBluetoothGetBLEDeviceCharacteristics = (args: IBluetoothGetBLEDeviceCharacteristicsArgs) => Promise<{
     characteristics: IBLEDeviceCharacteristicsItem[];
 }>;
-interface AsyncBluetoothReadBLECharacteristicValueArgs extends AsyncBluetoothGetBLEDeviceCharacteristicsArgs {
+interface IBluetoothReadBLECharacteristicValueArgs extends IBluetoothGetBLEDeviceCharacteristicsArgs {
     characteristicId: string;
 }
-type AsyncBluetoothReadBLECharacteristicValue = (args: AsyncBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
-interface AsyncBluetoothWriteBLECharacteristicValueArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+type AsyncBluetoothReadBLECharacteristicValue = (args: IBluetoothReadBLECharacteristicValueArgs) => Promise<void>;
+interface IBluetoothWriteBLECharacteristicValueArgs extends IBluetoothReadBLECharacteristicValueArgs {
     value: ArrayBuffer;
 }
-type AsyncBluetoothWriteBLECharacteristicValue = (args: AsyncBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
-interface AsyncBluetootNotifyBLECharacteristicValueChangeArgs extends AsyncBluetoothReadBLECharacteristicValueArgs {
+type AsyncBluetoothWriteBLECharacteristicValue = (args: IBluetoothWriteBLECharacteristicValueArgs) => Promise<void>;
+interface IBluetootNotifyBLECharacteristicValueChangeArgs extends IBluetoothReadBLECharacteristicValueArgs {
     state: boolean;
 }
-type AsyncBluetootNotifyBLECharacteristicValueChange = (args: AsyncBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
-interface AsyncAlarmSetAlarmArgs {
+type AsyncBluetootNotifyBLECharacteristicValueChange = (args: IBluetootNotifyBLECharacteristicValueChangeArgs) => Promise<void>;
+interface IAlarmSetAlarmArgs {
     hour: number;
     minute: number;
     message?: string;
@@ -563,7 +563,7 @@ interface AsyncAlarmSetAlarmArgs {
     days?: number[];
     ringtone: string;
 }
-type AsyncAlarmSetAlarm = (args: AsyncAlarmSetAlarmArgs) => Promise<void>;
+type AsyncAlarmSetAlarm = (args: IAlarmSetAlarmArgs) => Promise<void>;
 type AsyncAlarmIsAvailable = () => Promise<{
     isAvailable: boolean;
 }>;
@@ -609,4 +609,4 @@ declare const asyncStorageKey: AsyncStorageKey;
 
 declare const asyncWebviewSetCookie: AsyncWebviewSetCookie;
 
-export { AsyncAlarmIsAvailable, AsyncAlarmSetAlarm, AsyncBarcodeScan, AsyncBatteryGetStatus, AsyncBluetootNotifyBLECharacteristicValueChange, AsyncBluetoothCloseAdapter, AsyncBluetoothCloseBLEConnection, AsyncBluetoothCreateBLEConnection, AsyncBluetoothGetAdapterState, AsyncBluetoothGetBLEDeviceCharacteristics, AsyncBluetoothGetBLEDeviceServices, AsyncBluetoothGetConnectedDevices, AsyncBluetoothGetDevices, AsyncBluetoothOpenAdapter, AsyncBluetoothReadBLECharacteristicValue, AsyncBluetoothStartDevicesDiscovery, AsyncBluetoothStopDevicesDiscovery, AsyncBluetoothWriteBLECharacteristicValue, AsyncBrightnessGetMode, AsyncBrightnessGetValue, AsyncBrightnessSetKeepScreenOn, AsyncBrightnessSetMode, AsyncBrightnessSetValue, AsyncCalendarInsert, AsyncClipboardGet, AsyncClipboardSet, AsyncContactList, AsyncContactPick, AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncExchangeClear, AsyncExchangeGet, AsyncExchangeGrantPermission, AsyncExchangeRemove, AsyncExchangeRevokePermission, AsyncExchangeSet, AsyncFileAccess, AsyncFileCopy, AsyncFileDelete, AsyncFileGet, AsyncFileList, AsyncFileMkdir, AsyncFileMove, AsyncFileReadArrayBuffer, AsyncFileReadText, AsyncFileRmdir, AsyncFileWriteArrayBuffer, AsyncFileWriteText, AsyncGeolocationChooseLocation, AsyncGeolocationGeocodeQuery, AsyncGeolocationGetLocation, AsyncGeolocationGetLocationType, AsyncGeolocationOpenLocation, AsyncGeolocationReverseGeocodeQuery, AsyncKeyguardGetKeyguardLockedStatus, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncNetworkGetTypeRes, AsyncPkgGetInfo, AsyncPkgGetSignatureDigests, AsyncPkgHasInstalled, AsyncPkgInstall, AsyncPromptShowContextMenu, AsyncPromptShowDialog, AsyncRecordStart, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShareShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncSmsReadSafely, AsyncSmsSend, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncTelecomGetTelecomInfo, AsyncVolumeGetMediaValue, AsyncVolumeSetMediaValue, AsyncWebviewSetCookie, AsyncWifiConnect, AsyncWifiGetConnectedWifi, AsyncWifiScan, AsyncZipDecompress, IAppGetInfoRes, IDeviceGetInfoRes, IFetchFetchArgs, IFetchFetchRes, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncPromptShowContextMenu, asyncPromptShowDialog, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShareShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncWebviewSetCookie };
+export { AsyncAlarmIsAvailable, AsyncAlarmSetAlarm, AsyncBarcodeScan, AsyncBatteryGetStatus, AsyncBluetootNotifyBLECharacteristicValueChange, AsyncBluetoothCloseAdapter, AsyncBluetoothCloseBLEConnection, AsyncBluetoothCreateBLEConnection, AsyncBluetoothGetAdapterState, AsyncBluetoothGetBLEDeviceCharacteristics, AsyncBluetoothGetBLEDeviceServices, AsyncBluetoothGetConnectedDevices, AsyncBluetoothGetDevices, AsyncBluetoothOpenAdapter, AsyncBluetoothReadBLECharacteristicValue, AsyncBluetoothStartDevicesDiscovery, AsyncBluetoothStopDevicesDiscovery, AsyncBluetoothWriteBLECharacteristicValue, AsyncBrightnessGetMode, AsyncBrightnessGetValue, AsyncBrightnessSetKeepScreenOn, AsyncBrightnessSetMode, AsyncBrightnessSetValue, AsyncCalendarInsert, AsyncClipboardGet, AsyncClipboardSet, AsyncContactList, AsyncContactPick, AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncExchangeClear, AsyncExchangeGet, AsyncExchangeGrantPermission, AsyncExchangeRemove, AsyncExchangeRevokePermission, AsyncExchangeSet, AsyncFileAccess, AsyncFileCopy, AsyncFileDelete, AsyncFileGet, AsyncFileList, AsyncFileMkdir, AsyncFileMove, AsyncFileReadArrayBuffer, AsyncFileReadText, AsyncFileRmdir, AsyncFileWriteArrayBuffer, AsyncFileWriteText, AsyncGeolocationChooseLocation, AsyncGeolocationGeocodeQuery, AsyncGeolocationGetLocation, AsyncGeolocationGetLocationType, AsyncGeolocationOpenLocation, AsyncGeolocationReverseGeocodeQuery, AsyncKeyguardGetKeyguardLockedStatus, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncPkgGetInfo, AsyncPkgGetSignatureDigests, AsyncPkgHasInstalled, AsyncPkgInstall, AsyncPromptShowContextMenu, AsyncPromptShowDialog, AsyncRecordStart, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShareShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncSmsReadSafely, AsyncSmsSend, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncTelecomGetTelecomInfo, AsyncVolumeGetMediaValue, AsyncVolumeSetMediaValue, AsyncWebviewSetCookie, AsyncWifiConnect, AsyncWifiGetConnectedWifi, AsyncWifiScan, AsyncZipDecompress, IAppGetInfoRes, IDeviceGetInfoRes, IFetchFetchArgs, IFetchFetchRes, INetworkGetTypeRes, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncPromptShowContextMenu, asyncPromptShowDialog, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShareShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncWebviewSetCookie };
