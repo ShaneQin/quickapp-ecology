@@ -494,10 +494,9 @@ export type AsyncBluetoothStopDevicesDiscovery = () => Promise<void>;
 interface IBluetoothDeviceItem {
   name: string;
   deviceId: string;
-  
 }
 
-interface IBluetoothDeviceItemPlus extends IBluetoothDeviceItem{
+interface IBluetoothDeviceItemPlus extends IBluetoothDeviceItem {
   RSSI: number;
   advertisData: ArrayBuffer;
   advertisServiceUUIDs: string[];
@@ -505,9 +504,9 @@ interface IBluetoothDeviceItemPlus extends IBluetoothDeviceItem{
   serviceData: object;
 }
 
-export type AsyncBluetoothGetDevices = () => Promise<{devices: IBluetoothDeviceItemPlus[]}>;
+export type AsyncBluetoothGetDevices = () => Promise<{ devices: IBluetoothDeviceItemPlus[] }>;
 
-export type AsyncBluetoothGetConnectedDevices = (args: { services: string[] }) => Promise<{devices: IBluetoothDeviceItem[]}>;
+export type AsyncBluetoothGetConnectedDevices = (args: { services: string[] }) => Promise<{ devices: IBluetoothDeviceItem[] }>;
 
 export type AsyncBluetoothCreateBLEConnection = (args: { deviceId: string; timeout?: number }) => Promise<void>;
 
