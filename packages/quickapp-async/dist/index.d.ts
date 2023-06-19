@@ -575,6 +575,42 @@ type AsyncKeyguardGetKeyguardLockedStatus = () => Promise<{
     isKeyguardLocked: boolean;
 }>;
 
+declare const asyncAlarmSetAlarm: AsyncAlarmSetAlarm;
+declare const asyncAlarmIsAvailable: AsyncAlarmIsAvailable;
+
+declare const asyncBarcodeScan: AsyncBarcodeScan;
+
+declare const asyncBatteryGetStatus: AsyncBatteryGetStatus;
+
+declare const asyncBluetoothOpenAdapter: AsyncBluetoothOpenAdapter;
+declare const asyncBluetoothCloseAdapter: AsyncBluetoothCloseAdapter;
+declare const asyncBluetoothGetAdapterState: AsyncBluetoothGetAdapterState;
+declare const asyncBluetoothStartDevicesDiscovery: AsyncBluetoothStartDevicesDiscovery;
+declare const asyncBluetoothStopDevicesDiscovery: AsyncBluetoothStopDevicesDiscovery;
+declare const asyncBluetoothGetDevices: AsyncBluetoothGetDevices;
+declare const asyncBluetoothGetConnectedDevices: AsyncBluetoothGetConnectedDevices;
+declare const asyncBluetoothCreateBLEConnection: AsyncBluetoothCreateBLEConnection;
+declare const asyncBluetoothCloseBLEConnection: AsyncBluetoothCloseBLEConnection;
+declare const asyncBluetoothGetBLEDeviceServices: AsyncBluetoothGetBLEDeviceServices;
+declare const asyncBluetoothGetBLEDeviceCharacteristics: AsyncBluetoothGetBLEDeviceCharacteristics;
+declare const asyncBluetoothReadBLECharacteristicValue: AsyncBluetoothReadBLECharacteristicValue;
+declare const asyncBluetoothWriteBLECharacteristicValue: AsyncBluetoothWriteBLECharacteristicValue;
+declare const asyncBluetootNotifyBLECharacteristicValueChange: AsyncBluetootNotifyBLECharacteristicValueChange;
+
+declare const asyncBrightnessGetValue: AsyncBrightnessGetValue;
+declare const asyncBrightnessSetValue: AsyncBrightnessSetValue;
+declare const asyncBrightnessGetMode: AsyncBrightnessGetMode;
+declare const asyncBrightnessSetMode: AsyncBrightnessSetMode;
+declare const asyncBrightnessSetKeepScreenOn: AsyncBrightnessSetKeepScreenOn;
+
+declare const asyncCalendarInsert: AsyncCalendarInsert;
+
+declare const asyncClipboardSet: AsyncClipboardSet;
+declare const asyncClipboardGet: AsyncClipboardGet;
+
+declare const asyncContactPick: AsyncContactPick;
+declare const asyncContactList: AsyncContactList;
+
 declare const asyncDeviceGetInfo: AsyncDeviceGetInfo;
 declare const asyncDeviceGetId: AsyncDeviceGetId;
 declare const asyncDeviceGetDeviceId: AsyncDeviceGetDeviceId;
@@ -586,11 +622,47 @@ declare const asyncDeviceGetAvailableStorage: AsyncDeviceGetAvailableStorage;
 declare const asyncDeviceGetCpuInfo: AsyncDeviceGetCpuInfo;
 declare const asyncDeviceGetOAID: AsyncDeviceGetOAID;
 
+declare const asyncExchangeGet: AsyncExchangeGet;
+declare const asyncExchangeSet: AsyncExchangeSet;
+declare const asyncExchangeRemove: AsyncExchangeRemove;
+declare const asyncExchangeClear: AsyncExchangeClear;
+declare const asyncExchangeGrantPermission: AsyncExchangeGrantPermission;
+declare const asyncExchangeRevokePermission: AsyncExchangeRevokePermission;
+
+declare const asyncFileMove: AsyncFileMove;
+declare const asyncFileCopy: AsyncFileCopy;
+declare const asyncFileList: AsyncFileList;
+declare const asyncFileGet: AsyncFileGet;
+declare const asyncFileDelete: AsyncFileDelete;
+declare const asyncFileWriteText: AsyncFileWriteText;
+declare const asyncFileWriteArrayBuffer: AsyncFileWriteArrayBuffer;
+declare const asyncFileReadText: AsyncFileReadText;
+declare const asyncFileReadArrayBuffer: AsyncFileReadArrayBuffer;
+declare const asyncFileAccess: AsyncFileAccess;
+declare const asyncFileMkdir: AsyncFileMkdir;
+declare const asyncFileRmdir: AsyncFileRmdir;
+
+declare const asyncGeolocationGetLocation: AsyncGeolocationGetLocation;
+declare const asyncGeolocationOpenLocation: AsyncGeolocationOpenLocation;
+declare const asyncGeolocationChooseLocation: AsyncGeolocationChooseLocation;
+declare const asyncGeolocationGetLocationType: AsyncGeolocationGetLocationType;
+declare const asyncGeolocationGeocodeQuery: AsyncGeolocationGeocodeQuery;
+declare const asyncGeolocationReverseGeocodeQuery: AsyncGeolocationReverseGeocodeQuery;
+
+declare const asyncKeyguardGetKeyguardLockedStatus: AsyncKeyguardGetKeyguardLockedStatus;
+
 declare const asyncNetworkGetType: AsyncNetworkGetType;
 declare const asyncNetworkGetSimOperators: AsyncNetworkGetSimOperators;
 
+declare const asyncPkgHasInstalled: AsyncPkgHasInstalled;
+declare const asyncPkgInstall: AsyncPkgInstall;
+declare const asyncPkgGetInfo: AsyncPkgGetInfo;
+declare const asyncPkgGetSignatureDigests: AsyncPkgGetSignatureDigests;
+
 declare const asyncPromptShowDialog: AsyncPromptShowDialog;
 declare const asyncPromptShowContextMenu: AsyncPromptShowContextMenu;
+
+declare const asyncRecordStart: AsyncRecordStart;
 
 declare const asyncRequestUpload: AsyncRequestUpload;
 declare const asyncRequestDownload: AsyncRequestDownload;
@@ -601,12 +673,26 @@ declare const asyncShareShare: AsyncShareShare;
 declare const asyncShortcutHasInstalled: AsyncShortcutHasInstalled;
 declare const asyncShortcuInstall: AsyncShortcuInstall;
 
+declare const asyncSmsSend: AsyncSmsSend;
+declare const asyncSmsReadSafely: AsyncSmsReadSafely;
+
 declare const asyncStorageGet: AsyncStorageGet;
 declare const asyncStorageSet: AsyncStorageSet;
 declare const asyncStorageClear: AsyncStorageClear;
 declare const asyncStorageDelete: AsyncStorageDelete;
 declare const asyncStorageKey: AsyncStorageKey;
 
+declare const asyncTelecomGetTelecomInfo: AsyncTelecomGetTelecomInfo;
+
+declare const asyncVolumeGetMediaValue: AsyncVolumeGetMediaValue;
+declare const asyncVolumeSetMediaValue: AsyncVolumeSetMediaValue;
+
 declare const asyncWebviewSetCookie: AsyncWebviewSetCookie;
 
-export { AsyncAlarmIsAvailable, AsyncAlarmSetAlarm, AsyncBarcodeScan, AsyncBatteryGetStatus, AsyncBluetootNotifyBLECharacteristicValueChange, AsyncBluetoothCloseAdapter, AsyncBluetoothCloseBLEConnection, AsyncBluetoothCreateBLEConnection, AsyncBluetoothGetAdapterState, AsyncBluetoothGetBLEDeviceCharacteristics, AsyncBluetoothGetBLEDeviceServices, AsyncBluetoothGetConnectedDevices, AsyncBluetoothGetDevices, AsyncBluetoothOpenAdapter, AsyncBluetoothReadBLECharacteristicValue, AsyncBluetoothStartDevicesDiscovery, AsyncBluetoothStopDevicesDiscovery, AsyncBluetoothWriteBLECharacteristicValue, AsyncBrightnessGetMode, AsyncBrightnessGetValue, AsyncBrightnessSetKeepScreenOn, AsyncBrightnessSetMode, AsyncBrightnessSetValue, AsyncCalendarInsert, AsyncClipboardGet, AsyncClipboardSet, AsyncContactList, AsyncContactPick, AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncExchangeClear, AsyncExchangeGet, AsyncExchangeGrantPermission, AsyncExchangeRemove, AsyncExchangeRevokePermission, AsyncExchangeSet, AsyncFileAccess, AsyncFileCopy, AsyncFileDelete, AsyncFileGet, AsyncFileList, AsyncFileMkdir, AsyncFileMove, AsyncFileReadArrayBuffer, AsyncFileReadText, AsyncFileRmdir, AsyncFileWriteArrayBuffer, AsyncFileWriteText, AsyncGeolocationChooseLocation, AsyncGeolocationGeocodeQuery, AsyncGeolocationGetLocation, AsyncGeolocationGetLocationType, AsyncGeolocationOpenLocation, AsyncGeolocationReverseGeocodeQuery, AsyncKeyguardGetKeyguardLockedStatus, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncPkgGetInfo, AsyncPkgGetSignatureDigests, AsyncPkgHasInstalled, AsyncPkgInstall, AsyncPromptShowContextMenu, AsyncPromptShowDialog, AsyncRecordStart, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShareShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncSmsReadSafely, AsyncSmsSend, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncTelecomGetTelecomInfo, AsyncVolumeGetMediaValue, AsyncVolumeSetMediaValue, AsyncWebviewSetCookie, AsyncWifiConnect, AsyncWifiGetConnectedWifi, AsyncWifiScan, AsyncZipDecompress, IAppGetInfoRes, IDeviceGetInfoRes, IFetchFetchArgs, IFetchFetchRes, INetworkGetTypeRes, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncPromptShowContextMenu, asyncPromptShowDialog, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShareShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncWebviewSetCookie };
+declare const asyncWifiConnect: AsyncWifiConnect;
+declare const asyncWifiScan: AsyncWifiScan;
+declare const asyncWifiGetConnectedWifi: AsyncWifiGetConnectedWifi;
+
+declare const asyncZipDecompress: AsyncZipDecompress;
+
+export { AsyncAlarmIsAvailable, AsyncAlarmSetAlarm, AsyncBarcodeScan, AsyncBatteryGetStatus, AsyncBluetootNotifyBLECharacteristicValueChange, AsyncBluetoothCloseAdapter, AsyncBluetoothCloseBLEConnection, AsyncBluetoothCreateBLEConnection, AsyncBluetoothGetAdapterState, AsyncBluetoothGetBLEDeviceCharacteristics, AsyncBluetoothGetBLEDeviceServices, AsyncBluetoothGetConnectedDevices, AsyncBluetoothGetDevices, AsyncBluetoothOpenAdapter, AsyncBluetoothReadBLECharacteristicValue, AsyncBluetoothStartDevicesDiscovery, AsyncBluetoothStopDevicesDiscovery, AsyncBluetoothWriteBLECharacteristicValue, AsyncBrightnessGetMode, AsyncBrightnessGetValue, AsyncBrightnessSetKeepScreenOn, AsyncBrightnessSetMode, AsyncBrightnessSetValue, AsyncCalendarInsert, AsyncClipboardGet, AsyncClipboardSet, AsyncContactList, AsyncContactPick, AsyncDeviceGetAdvertisingId, AsyncDeviceGetAvailableStorage, AsyncDeviceGetCpuInfo, AsyncDeviceGetDeviceId, AsyncDeviceGetId, AsyncDeviceGetInfo, AsyncDeviceGetOAID, AsyncDeviceGetSerial, AsyncDeviceGetTotalStorage, AsyncDeviceGetUserId, AsyncExchangeClear, AsyncExchangeGet, AsyncExchangeGrantPermission, AsyncExchangeRemove, AsyncExchangeRevokePermission, AsyncExchangeSet, AsyncFileAccess, AsyncFileCopy, AsyncFileDelete, AsyncFileGet, AsyncFileList, AsyncFileMkdir, AsyncFileMove, AsyncFileReadArrayBuffer, AsyncFileReadText, AsyncFileRmdir, AsyncFileWriteArrayBuffer, AsyncFileWriteText, AsyncGeolocationChooseLocation, AsyncGeolocationGeocodeQuery, AsyncGeolocationGetLocation, AsyncGeolocationGetLocationType, AsyncGeolocationOpenLocation, AsyncGeolocationReverseGeocodeQuery, AsyncKeyguardGetKeyguardLockedStatus, AsyncNetworkGetSimOperators, AsyncNetworkGetType, AsyncPkgGetInfo, AsyncPkgGetSignatureDigests, AsyncPkgHasInstalled, AsyncPkgInstall, AsyncPromptShowContextMenu, AsyncPromptShowDialog, AsyncRecordStart, AsyncRequestDownload, AsyncRequestOnDownloadComplete, AsyncRequestUpload, AsyncShareShare, AsyncShortcuInstall, AsyncShortcutHasInstalled, AsyncSmsReadSafely, AsyncSmsSend, AsyncStorageClear, AsyncStorageDelete, AsyncStorageGet, AsyncStorageKey, AsyncStorageSet, AsyncTelecomGetTelecomInfo, AsyncVolumeGetMediaValue, AsyncVolumeSetMediaValue, AsyncWebviewSetCookie, AsyncWifiConnect, AsyncWifiGetConnectedWifi, AsyncWifiScan, AsyncZipDecompress, IAppGetInfoRes, IDeviceGetInfoRes, IFetchFetchArgs, IFetchFetchRes, INetworkGetTypeRes, asyncAlarmIsAvailable, asyncAlarmSetAlarm, asyncBarcodeScan, asyncBatteryGetStatus, asyncBluetootNotifyBLECharacteristicValueChange, asyncBluetoothCloseAdapter, asyncBluetoothCloseBLEConnection, asyncBluetoothCreateBLEConnection, asyncBluetoothGetAdapterState, asyncBluetoothGetBLEDeviceCharacteristics, asyncBluetoothGetBLEDeviceServices, asyncBluetoothGetConnectedDevices, asyncBluetoothGetDevices, asyncBluetoothOpenAdapter, asyncBluetoothReadBLECharacteristicValue, asyncBluetoothStartDevicesDiscovery, asyncBluetoothStopDevicesDiscovery, asyncBluetoothWriteBLECharacteristicValue, asyncBrightnessGetMode, asyncBrightnessGetValue, asyncBrightnessSetKeepScreenOn, asyncBrightnessSetMode, asyncBrightnessSetValue, asyncCalendarInsert, asyncClipboardGet, asyncClipboardSet, asyncContactList, asyncContactPick, asyncDeviceGetAdvertisingId, asyncDeviceGetAvailableStorage, asyncDeviceGetCpuInfo, asyncDeviceGetDeviceId, asyncDeviceGetId, asyncDeviceGetInfo, asyncDeviceGetOAID, asyncDeviceGetSerial, asyncDeviceGetTotalStorage, asyncDeviceGetUserId, asyncExchangeClear, asyncExchangeGet, asyncExchangeGrantPermission, asyncExchangeRemove, asyncExchangeRevokePermission, asyncExchangeSet, asyncFileAccess, asyncFileCopy, asyncFileDelete, asyncFileGet, asyncFileList, asyncFileMkdir, asyncFileMove, asyncFileReadArrayBuffer, asyncFileReadText, asyncFileRmdir, asyncFileWriteArrayBuffer, asyncFileWriteText, asyncGeolocationChooseLocation, asyncGeolocationGeocodeQuery, asyncGeolocationGetLocation, asyncGeolocationGetLocationType, asyncGeolocationOpenLocation, asyncGeolocationReverseGeocodeQuery, asyncKeyguardGetKeyguardLockedStatus, asyncNetworkGetSimOperators, asyncNetworkGetType, asyncPkgGetInfo, asyncPkgGetSignatureDigests, asyncPkgHasInstalled, asyncPkgInstall, asyncPromptShowContextMenu, asyncPromptShowDialog, asyncRecordStart, asyncRequestDownload, asyncRequestOnDownloadComplete, asyncRequestUpload, asyncShareShare, asyncShortcuInstall, asyncShortcutHasInstalled, asyncSmsReadSafely, asyncSmsSend, asyncStorageClear, asyncStorageDelete, asyncStorageGet, asyncStorageKey, asyncStorageSet, asyncTelecomGetTelecomInfo, asyncVolumeGetMediaValue, asyncVolumeSetMediaValue, asyncWebviewSetCookie, asyncWifiConnect, asyncWifiGetConnectedWifi, asyncWifiScan, asyncZipDecompress };

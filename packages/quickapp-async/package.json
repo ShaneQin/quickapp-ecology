@@ -1,6 +1,6 @@
 {
   "name": "quickapp-async",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -15,5 +15,12 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/index.d.ts"
+    }
   }
 }

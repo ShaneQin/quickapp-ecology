@@ -16,6 +16,7 @@ import {
 
 export const asyncFileMove: AsyncFileMove = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.move({
       ...args,
       success: resolve,
@@ -26,6 +27,7 @@ export const asyncFileMove: AsyncFileMove = (args) => {
 
 export const asyncFileCopy: AsyncFileCopy = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.copy({
       ...args,
       success: resolve,
@@ -36,6 +38,7 @@ export const asyncFileCopy: AsyncFileCopy = (args) => {
 
 export const asyncFileList: AsyncFileList = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.list({
       ...args,
       success: resolve,
@@ -46,6 +49,7 @@ export const asyncFileList: AsyncFileList = (args) => {
 
 export const asyncFileGet: AsyncFileGet = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.get({
       ...args,
       success: resolve,
@@ -66,6 +70,7 @@ export const asyncFileDelete: AsyncFileDelete = (args) => {
 
 export const asyncFileWriteText: AsyncFileWriteText = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.writeText({
       ...args,
       success: resolve,
@@ -76,6 +81,7 @@ export const asyncFileWriteText: AsyncFileWriteText = (args) => {
 
 export const asyncFileWriteArrayBuffer: AsyncFileWriteArrayBuffer = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.writeArrayBuffer({
       ...args,
       success: resolve,
@@ -86,6 +92,7 @@ export const asyncFileWriteArrayBuffer: AsyncFileWriteArrayBuffer = (args) => {
 
 export const asyncFileReadText: AsyncFileReadText = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.readText({
       ...args,
       success: resolve,
@@ -96,6 +103,7 @@ export const asyncFileReadText: AsyncFileReadText = (args) => {
 
 export const asyncFileReadArrayBuffer: AsyncFileReadArrayBuffer = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.readArrayBuffer({
       ...args,
       success: resolve,
@@ -106,6 +114,7 @@ export const asyncFileReadArrayBuffer: AsyncFileReadArrayBuffer = (args) => {
 
 export const asyncFileAccess: AsyncFileAccess = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.access({
       ...args,
       success: resolve,
@@ -116,6 +125,7 @@ export const asyncFileAccess: AsyncFileAccess = (args) => {
 
 export const asyncFileMkdir: AsyncFileMkdir = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.mkdir({
       ...args,
       success: resolve,
@@ -126,6 +136,7 @@ export const asyncFileMkdir: AsyncFileMkdir = (args) => {
 
 export const asyncFileRmdir: AsyncFileRmdir = (args) => {
   return new Promise((resolve, reject) => {
+    // @ts-ignore
     file.rmdir({
       ...args,
       success: resolve,
